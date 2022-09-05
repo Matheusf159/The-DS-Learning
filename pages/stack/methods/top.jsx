@@ -4,7 +4,7 @@ import Layout from "../../../components/Layout";
 import Sidebar from "../../../components/Sidebar";
 import NavStructMenu from "../../../components/NavStructMenu";
 import { faLayerGroup } from "@fortawesome/free-solid-svg-icons";
-import TopStackAnimation from "../../../components/stacksComponents/TopStackAnimation/Top_stack_animation";
+import TopStackAnimation from "../../../components/stacksComponents/TopStackAnimation/Top_stack_animation.jsx";
 import styles from "../../../styles/Pages.module.css";
 import { methods } from "./methods";
 import { Container, Row, Col } from "reactstrap";

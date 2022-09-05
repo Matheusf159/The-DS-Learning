@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 import Layout from "../../../components/Layout";
 import Sidebar from "../../../components/Sidebar";
 import NavStructMenu from "../../../components/NavStructMenu";
-import FreeStackAnimation from "../../../components/stacksComponents/FreeStackAnimation/Free_stack_animation";
+import FreeStackAnimation from "../../../components/stacksComponents/FreeStackAnimation/Free_stack_animation..jsx";
 import styles from "../../../styles/Pages.module.css";
 import { faLayerGroup } from "@fortawesome/free-solid-svg-icons";
 import { methods } from "./methods";
