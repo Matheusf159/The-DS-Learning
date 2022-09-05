@@ -3,7 +3,7 @@ import Layout from "../../../components/Layout";
 import Sidebar from "../../../components/Sidebar";
 import NavStructMenu from "../../../components/NavStructMenu";
 import { faLayerGroup } from "@fortawesome/free-solid-svg-icons";
-import IsFullStackAnimation from "../../../components/StacksComponents/IsFullStackAnimation/is_full_stack_animation";
+import IsFullStackAnimation from "../../../components/StacksComponents/isFullStackAnimation/Is_full_stack_animation"
 import styles from "../../../styles/Pages.module.css";
 import { methods } from "./methods";
 import { Container, Row, Col } from "reactstrap";
