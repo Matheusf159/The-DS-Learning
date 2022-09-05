@@ -1,5 +1,4 @@
 import React from "react";
-import { useRouter } from "next/router";
 import Layout from "../../../components/Layout";
 import Sidebar from "../../../components/Sidebar";
 import NavStructMenu from "../../../components/NavStructMenu";
@@ -10,8 +9,6 @@ import { methods } from "./methods";
 import { Container, Row, Col } from "reactstrap";
 
 export default function IsFull() {
-  const router = useRouter();
-  const func = router.query.createStack;
 
   const code = `
 1.  int estarCheia(Pilha *p) {
