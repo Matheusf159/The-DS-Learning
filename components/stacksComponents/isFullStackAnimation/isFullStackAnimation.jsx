@@ -2,7 +2,7 @@ import React from 'react'
 
 import styles from './IsFullStackAnimation.module.css'
 
-export default function IsFullStackAnimation() {
+export default function IsFullStackAnimation() { 
     return (
         <div className={styles.container}>
             <div className={styles.side}>
