@@ -6,7 +6,7 @@ import NavStructMenu from "../../../components/NavStructMenu";
 import FreeStackAnimation from "../../../components/stacksComponents/FreeStackAnimation/FreeStackAnimation";
 import styles from "../../../styles/Pages.module.css";
 import { faLayerGroup } from "@fortawesome/free-solid-svg-icons";
-import { methods } from "./methods";
+import { methods } from "../../../components/stacksComponents/methods";
 
 import { Container, Row, Col } from "reactstrap";
 

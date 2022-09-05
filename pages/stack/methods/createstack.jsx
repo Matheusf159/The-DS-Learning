@@ -5,15 +5,13 @@ import Sidebar from "../../../components/Sidebar";
 import NavStructMenu from "../../../components/NavStructMenu";
 import { Container, Row, Col } from "reactstrap";
 import { faLayerGroup } from "@fortawesome/free-solid-svg-icons";
-import { methods } from "./methods";
+import { methods } from "../../../components/stacksComponents/methods";
 
 import CreateStackAnimation from "../../../components/stacksComponents/CreateStackAnimation/CreateStackAnimation";
 
 import styles from "../../../styles/Pages.module.css";
 
 export default function CreateStack() {
-  const router = useRouter();
-  const func = router.query.createStack;
 
   const code = `
 1.  Pilha* criarPilha() {

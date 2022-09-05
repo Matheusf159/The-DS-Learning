@@ -6,7 +6,7 @@ import NavStructMenu from "../../../components/NavStructMenu";
 import { faLayerGroup } from "@fortawesome/free-solid-svg-icons";
 import TopStackAnimation from "../../../components/stacksComponents/TopStackAnimation/TopStackAnimation";
 import styles from "../../../styles/Pages.module.css";
-import { methods } from "./methods";
+import { methods } from "../../../components/stacksComponents/methods";
 import { Container, Row, Col } from "reactstrap";
 
 export default function Top() {
