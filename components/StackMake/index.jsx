@@ -1,6 +1,6 @@
 import React from 'react'
 import styles from './StackMake.module.css'
-import StackPart from '../StacksComponents/StackPart/StackPart'
+import StackPart from '../stacksComponents/StackPart/StackPart'
 
 
 export default function StackMake(props) {
