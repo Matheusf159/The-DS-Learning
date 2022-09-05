@@ -4,7 +4,7 @@ import NavStructMenu from "../../components/NavStructMenu";
 import { Container, Row, Col } from "reactstrap";
 import { faLayerGroup } from "@fortawesome/free-solid-svg-icons";
 import { methods } from "../../components/stacksComponents/methods";
-import { StructStackCode } from '../../components/StacksComponents/CodesStack/CodesStack'
+import { StructStackCode } from '../../components/stacksComponents/CodesStack/CodesStack'
 
 export default function Stack() {
   return (

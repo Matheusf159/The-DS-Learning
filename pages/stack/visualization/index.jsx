@@ -15,9 +15,9 @@ PopStackCode,
 FreeStackCode, 
 IsEmptyStackCode, 
 IsFullStackCode, 
-TopStackCode} from '../../../components/StacksComponents/CodesStack/CodesStack'
+TopStackCode} from '../../../components/stacksComponents/CodesStack/CodesStack'
 
-import { methods } from "../methods/methods";
+import { methods } from "../../../components/stacksComponents/methods";
 import StackMake from "../../../components/StackMake";
 
 export default function StackInterative() {
