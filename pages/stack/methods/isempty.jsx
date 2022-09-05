@@ -4,7 +4,7 @@ import Layout from "../../../components/Layout";
 import Sidebar from "../../../components/Sidebar";
 import NavStructMenu from "../../../components/NavStructMenu";
 import { faLayerGroup } from "@fortawesome/free-solid-svg-icons";
-import IsEmptyStackAnimation from "../../../components/StacksComponents/IsEmptyStackAnimation/Is_empty_stack_animation";
+import IsEmptyStackAnimation from "../../../components/stacksComponents/IsEmptyStackAnimation/Is_empty_stack_animation";
 import { methods } from "./methods";
 import styles from "../../../styles/Pages.module.css";
 

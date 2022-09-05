@@ -7,7 +7,7 @@ import { Container, Row, Col } from "reactstrap";
 import { faLayerGroup } from "@fortawesome/free-solid-svg-icons";
 import { methods } from "./methods";
 
-import CreateStackAnimation from "../../../components/StacksComponents/CreateStackAnimation/Create_stack_animation";
+import CreateStackAnimation from "../../../components/stacksComponents/CreateStackAnimation/Create_stack_animation";
 
 import styles from "../../../styles/Pages.module.css";
 
