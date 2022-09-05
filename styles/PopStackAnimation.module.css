@@ -1,0 +1,93 @@
+/* PUSH STACK */
+
+.containerPopStack {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.blocoPopStack1 {
+    width: 70px;
+    height: 70px;
+    border-radius: 4px;
+    background-color: rgb(130, 169, 177);
+    border: 1px solid black;
+
+    opacity: 1;
+
+    animation: fadeInAnimation ease 2s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    animation-delay: 1s;
+}
+
+.blocoPopStack2 {
+    width: 70px;
+    height: 70px;
+    border-radius: 4px;
+    background-color: rgb(130, 169, 177);
+    border: 1px solid black;
+
+    opacity: 1;
+
+    animation: fadeInAnimation ease 2s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    animation-delay: 3s;
+}
+
+.blocoPopStack3 {
+    width: 70px;
+    height: 70px;
+    border-radius: 4px;
+    background-color: rgb(130, 169, 177);
+    border: 1px solid black;
+
+    opacity: 1;
+
+    animation: fadeInAnimation ease 2s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    animation-delay: 5s;
+    
+}
+
+.blocoPopStack4 {
+    width: 70px;
+    height: 70px;
+    border-radius: 4px;
+    background-color: rgb(130, 169, 177);
+    border: 1px solid black;
+
+    opacity: 1;
+
+    /* animation: fadeInAnimation ease 2s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    animation-delay: 7s; */
+}
+
+.blocoPopStack5 {
+    width: 70px;
+    height: 70px;
+    border-radius: 4px;
+    background-color: rgb(130, 169, 177);
+    border: 1px solid black;
+    
+    opacity: 1;
+
+    /* animation: fadeInAnimation ease 2s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    animation-delay: 9s; */
+}
+
+@keyframes fadeInAnimation {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}

@@ -1,0 +1,110 @@
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.text {
+    text-align: center;
+}
+
+.side {
+    margin: 10px;
+
+    animation: fadeInAnimation ease 7s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+.blocoPushStack1 {
+    width: 70px;
+    height: 70px;
+    border-radius: 4px;
+    background-color: white;
+    border: 1px solid black;
+}
+
+.blocoPushStack2 {
+    width: 70px;
+    height: 70px;
+    border-radius: 4px;
+    background-color: white;
+    border: 1px solid black;
+}
+
+.blocoPushStack3 {
+    width: 70px;
+    height: 70px;
+    border-radius: 4px;
+    background-color: white;
+    border: 1px solid black;
+}
+
+.blocoPushStack4 {
+    width: 70px;
+    height: 70px;
+    border-radius: 4px;
+    background-color: white;
+    border: 1px solid black;
+}
+
+.blocoPushStack5 {
+    width: 70px;
+    height: 70px;
+    border-radius: 4px;
+    background-color: white;
+    border: 1px solid black;
+}
+
+
+/* ################################3 */
+.blocoPushStack1Fill {
+    width: 70px;
+    height: 70px;
+    border-radius: 4px;
+    background-color: rgb(72, 72, 72);
+    border: 1px solid black;
+}
+
+.blocoPushStack2Fill {
+    width: 70px;
+    height: 70px;
+    border-radius: 4px;
+    background-color: rgb(72, 72, 72);
+    border: 1px solid black;
+}
+
+.blocoPushStack3Fill {
+    width: 70px;
+    height: 70px;
+    border-radius: 4px;
+    background-color: rgb(72, 72, 72);
+    border: 1px solid black;
+    
+}
+
+.blocoPushStack4Fill {
+    width: 70px;
+    height: 70px;
+    border-radius: 4px;
+    background-color: rgb(72, 72, 72);
+    border: 1px solid black;
+}
+
+.blocoPushStack5Fill {
+    width: 70px;
+    height: 70px;
+    border-radius: 4px;
+    background-color: rgb(72, 72, 72);
+    border: 1px solid black;
+}
+/* ################################3 */
+
+@keyframes fadeInAnimation {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}

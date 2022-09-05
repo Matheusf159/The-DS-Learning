@@ -1,0 +1,130 @@
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.text {
+    text-align: center;
+}
+
+.inside {
+    display: flex;
+}
+
+.side {
+    margin: 10px;
+
+    animation: fadeInAnimation ease 7s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+.blocoPushQueue {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 70px;
+    height: 70px;
+}
+
+.blocoPushQueue1 {
+    width: 70px;
+    height: 70px;
+    border-radius: 4px;
+    background-color: white;
+    border: 1px solid black;
+}
+
+.blocoPushQueue2 {
+    width: 70px;
+    height: 70px;
+    border-radius: 4px;
+    background-color: white;
+    border: 1px solid black;
+}
+
+.blocoPushQueue3 {
+    width: 70px;
+    height: 70px;
+    border-radius: 4px;
+    background-color: white;
+    border: 1px solid black;
+}
+
+.blocoPushQueue4 {
+    width: 70px;
+    height: 70px;
+    border-radius: 4px;
+    background-color: white;
+    border: 1px solid black;
+}
+
+.blocoPushQueue5 {
+    width: 70px;
+    height: 70px;
+    border-radius: 4px;
+    background-color: white;
+    border: 1px solid black;
+}
+
+
+/* ################################3 */
+.blocoPushQueue1Fill {
+    width: 70px;
+    height: 70px;
+    border-radius: 4px;
+    background-color: rgb(72, 72, 72);
+    border: 1px solid black;
+}
+
+.blocoPushQueue2Fill {
+    width: 70px;
+    height: 70px;
+    border-radius: 4px;
+    background-color: rgb(72, 72, 72);
+    border: 1px solid black;
+}
+
+.blocoPushQueue3Fill {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    width: 70px;
+    height: 70px;
+    border-radius: 4px;
+    background-color: rgb(72, 72, 72);
+    border: 1px solid black;
+    
+}
+
+.blocoPushQueue4Fill {
+    width: 70px;
+    height: 70px;
+    border-radius: 4px;
+    background-color: rgb(72, 72, 72);
+    border: 1px solid black;
+}
+
+.blocoPushQueue5Fill {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    width: 70px;
+    height: 70px;
+    border-radius: 4px;
+    background-color: rgb(72, 72, 72);
+    border: 1px solid black;
+}
+/* ################################3 */
+
+@keyframes fadeInAnimation {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}

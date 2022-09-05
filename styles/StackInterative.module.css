@@ -1,0 +1,153 @@
+
+.wrapper {
+    display: flex;
+}
+
+.displayFlex {
+    display: flex;
+}
+
+.divAttention {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.pAttention {
+    font-size: 16;
+    color: rgb(72, 72, 72);
+    font-weight: bold;
+}
+
+.paragraph { 
+    font-size: 16;
+    color: rgb(72, 72, 72);
+    font-weight: bold;
+}
+
+.valueListPushStyle {
+    font-size: 20;
+    letter-spacing: 10px;
+    font-weight: bold;
+    margin-left: 10;
+    margin-right: 10;
+}
+
+.h3Style {
+    text-align: center;
+    font-size: 20;
+    color: rgb(72, 72, 72);
+}
+
+.stackMakeStyle {
+    margin-top: 50px;
+    margin-left: 300px;
+}
+
+.left {
+    flex-grow: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(72, 72, 72);
+    height: 100vh;
+}
+
+.rightLeft {
+    display: flex;
+    flex-direction: column;
+}
+
+.inputUser {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100px;
+    /* border-bottom: 1px solid black; */
+}
+
+
+
+.inputStructStack {
+    width: 50px;
+    height: 30px;
+    margin-top: 4px;
+    margin-left: 10px;
+}
+
+
+.contentInput {
+    display: flex;
+}
+
+.funcInput {
+    font-size: 30px;
+    font-weight: bold;
+    
+}
+
+.inputValues{
+    margin-top: 10px;
+    font-weight: bold;
+    text-align: center;
+    font-size: 25px;
+    width: 50px;
+    height:30px;
+}
+
+.buttonsInterative {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    height: 199px;
+}
+
+.btnInterative {
+    margin-left: 10px;
+    margin-right: 10px;
+    height: 50px;
+    width: 170px;
+    background-color: rgb(72, 72, 72);
+    border-radius: 6px;
+    color: white;
+    font-weight: bold;
+
+}
+
+.btnInterative:hover {
+    background-color: rgb(110, 109, 109);
+    transition: 0.2s;
+}
+
+.buttonsLine {
+    display: flex;
+    justify-content: space-around;
+}
+
+
+.rightLeftdown {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    /* border-top: 2px solid black; */
+}
+
+.rightRight {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    /* border-left: 2px solid black; */
+}
+
+.attention {
+    text-align: center;
+    font-size: 14px;
+    color: rgb(72, 72, 72);
+    font-weight: bold;
+    margin-left: 100px;
+}

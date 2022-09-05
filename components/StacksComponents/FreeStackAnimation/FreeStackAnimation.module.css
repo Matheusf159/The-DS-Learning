@@ -1,0 +1,65 @@
+.containerFreeStack {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    animation: fadeOutAnimation ease 2s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+
+    
+}
+
+.containerFreeStackAfter {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    animation: fadeIntAnimation ease 5s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+
+    
+}
+
+.blocoFreeStack {
+    width: 70px;
+    height: 70px;
+    border-radius: 4px;
+    background-color: rgb(72, 72, 72);
+    border: 1px solid black;
+
+}
+
+.blocoFreeStackAfter {
+    width: 70px;
+    height: 70px;
+    border-radius: 4px;
+    background-color: rgb(255, 255, 255);
+    border: 1px dotted black;
+
+}
+ 
+  
+
+@keyframes fadeOutAnimation {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes fadeIntAnimation {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+

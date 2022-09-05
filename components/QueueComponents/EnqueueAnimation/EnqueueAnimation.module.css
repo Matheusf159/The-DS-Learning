@@ -1,0 +1,195 @@
+.containerQueue {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row-reverse;
+}
+
+/* ################################3 */
+.blocoQueue1Fill {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 70px;
+    height: 70px;
+    border-radius: 4px;
+    background-color: rgb(72, 72, 72);
+    border: 1px solid black;
+
+    opacity: 0;
+
+    animation: fadeInAnimation ease 2s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    animation-delay: 5s;
+}
+
+.topFill {
+    color: white;
+    font-weight: bold;
+
+    opacity: 0;
+
+    animation: fadeInAnimation ease 2s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    animation-delay: 5s;
+}
+
+.blocoQueue2Fill {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 70px;
+    height: 70px;
+    border-radius: 4px;
+    background-color: rgb(72, 72, 72);
+    border: 1px solid black;
+
+    opacity: 0;
+
+    animation: fadeInAnimation ease 2s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    animation-delay: 4s;
+}
+
+
+.topFill2 {
+    color: white;
+    font-weight: bold;
+
+    opacity: 0;
+
+    animation: fadeInAnimationP ease 2s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    animation-delay: 4s;
+}
+
+
+.blocoQueue3Fill {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 70px;
+    height: 70px;
+    border-radius: 4px;
+    background-color: rgb(72, 72, 72);
+    border: 1px solid black;
+
+    opacity: 0;
+
+    animation: fadeInAnimation ease 2s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    animation-delay: 3s;
+    
+}
+
+.topFill3 {
+    color: white;
+    font-weight: bold;
+
+    opacity: 0;
+    animation: fadeInAnimationP ease 2s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    animation-delay: 3s;
+}
+
+
+.blocoQueue4Fill {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 70px;
+    height: 70px;
+    border-radius: 4px;
+    background-color: rgb(72, 72, 72);
+    border: 1px solid black;
+
+    opacity: 0;
+
+    animation: fadeInAnimation ease 2s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    animation-delay: 2s;
+}
+
+.topFill4 {
+    color: white;
+    font-weight: bold;
+
+    opacity: 0;
+
+    animation: fadeInAnimationP ease 2s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    animation-delay: 2s;
+}
+
+
+.blocoQueue5Fill {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 70px;
+    height: 70px;
+    border-radius: 4px;
+    background-color: rgb(72, 72, 72);
+    border: 1px solid black;
+    
+    opacity: 0;
+
+    animation: fadeInAnimation ease 2s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    animation-delay: 1s;
+}
+
+.topFill5 {
+    color: white;
+    font-weight: bold;
+}
+
+.topFill6 {
+    color: white;
+    font-weight: bold;
+
+    opacity: 0;
+
+    animation: fadeInAnimationP ease 2s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    animation-delay: 1s;
+}
+
+.topFill6Hide {
+    display: none;
+}
+
+/* ################################3 */
+
+@keyframes fadeInAnimation {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInAnimationP {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        display: none;
+    }
+}
