@@ -3,7 +3,7 @@ import Layout from "../../../components/Layout";
 import NavStructMenu from "../../../components/NavStructMenu";
 import Sidebar from "../../../components/Sidebar";
 import { faLinesLeaning } from "@fortawesome/free-solid-svg-icons";
-import { methods } from '../methods/methods'
+import { methods } from "../../../components/QueueComponents/methods";
 import styles from '../../../styles/QueueInterative.module.css'
 import { Container } from "reactstrap";
 import QueueMake from '../../../components/QueueMake'

@@ -4,7 +4,7 @@ import Sidebar from "../../../components/Sidebar";
 import NavStructMenu from "../../../components/NavStructMenu";
 import { Container, Row, Col } from "reactstrap";
 import { faLayerGroup } from "@fortawesome/free-solid-svg-icons";
-import { methods } from "./methods";
+import { methods } from "../../../components/QueueComponents/methods";
 import FreeQueueAnimation from "../../../components/QueueComponents/FreeQueueAnimation/Free_queue_animation";
 import styles from "../../../styles/Pages.module.css";
 
