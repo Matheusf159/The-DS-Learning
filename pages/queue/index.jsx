@@ -3,7 +3,7 @@ import Sidebar from "../../components/Sidebar";
 import NavStructMenu from "../../components/NavStructMenu";
 import { Container, Row, Col } from 'reactstrap'
 import { faLinesLeaning } from "@fortawesome/free-solid-svg-icons"
-import { methods } from "../../../components/QueueComponents/methods";
+import { methods } from "../../components/QueueComponents/methods";
 import { StructQueueCode } from '../../components/QueueComponents/CodesQueue/CodesQueue'
 
 export default function Queue() {
