@@ -75,7 +75,7 @@ Top.getLayout = function getLayout(page) {
           iconName={faLayerGroup}
           linkStruct="/stack"
           linkVisualization="/stack/visualization"
-          linkExercicio="/stack/exercicio"
+          linkExercicio="/stack/exercices"
           methods={methods}
         />
         {page}

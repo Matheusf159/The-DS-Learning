@@ -6,7 +6,7 @@ import { faHouse, faLayerGroup, faLinesLeaning, faEllipsis, faSignal, faMagnifyi
 export default function Sidebar() {
   return (
     <nav className={styles.nav}>
-      <h2>THE DS-LEARNING</h2>
+      <h2>DS-LEARNING</h2>
 
       <Link href="/">
         <a>
@@ -26,15 +26,16 @@ export default function Sidebar() {
         <a><FontAwesomeIcon icon={faLinesLeaning} />Fila</a>
       </Link>
 
-      <Link href="#">
+      <Link href="/linkedList">
         <a><FontAwesomeIcon icon={faEllipsis} />Lista</a>
       </Link>
 
       <span className={styles.nav_group_title}>Outros Algoritmos</span>
-      <Link href="/bubblesort">
-        <a><FontAwesomeIcon icon={faSignal} />Bubblesort</a>
+      <Link href="/selectionsort">
+        <a><FontAwesomeIcon icon={faSignal} />SelectionSort</a>
       </Link>
-      
+
+      {/* /binarySearch */}
       <Link href="#">
         <a><FontAwesomeIcon icon={faMagnifyingGlass} />Busca Binária</a>
       </Link>

@@ -76,7 +76,7 @@ Enqueue.getLayout = function getLayout(page) {
                     iconName={faLayerGroup}
                     linkStruct="/queue"
                     linkVisualization="/queue/visualization"
-                    linkExercicio="/queue/exercicio"
+                    linkExercicio="/queue/exercices"
                     methods={methods}
                 />
                 {page}

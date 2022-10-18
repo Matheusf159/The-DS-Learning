@@ -108,19 +108,19 @@ export default function QueueInterative() {
 
             setAttentionIsEmptyQueue(false)
             setShowNextStep(false)
-        }
-
-        if (valueListEnqueue.length == 0) {
-            setShowConfirmDequeue(false);
-            setShowCodeIsEmptyQueue(true)
-        }
-
-        if (valueListEnqueue.length == []) {
-            setShowConfirmEnqueue(true);
-        }
-
-        if (valueListEnqueue.length != []) {
-            setShowConfirmDequeue(true)
+            
+            if (valueListEnqueue.length == 0) {
+                setShowConfirmDequeue(false);
+                setShowCodeIsEmptyQueue(true)
+            }
+            
+            if (valueListEnqueue.length == []) {
+                setShowConfirmEnqueue(true);
+            }
+            
+            if (valueListEnqueue.length != []) {
+                setShowConfirmDequeue(true)
+            }
         }
     }
 
@@ -223,7 +223,7 @@ export default function QueueInterative() {
                                     value={valueStruct}
                                     onChange={(q) => setValueStruct(q.target.value)}
                                 >
-                                    <option value="0">0</option>
+                                    <option value="0"></option>
                                     <option value="1">1</option>
                                     <option value="2">2</option>
                                     <option value="3">3</option>
@@ -237,15 +237,14 @@ export default function QueueInterative() {
                             
                             <button 
                                 className={styles.buttonInterative}
-                                style={{display: showBtnCreateQueue ? " " : "none"}}
-                                onClick={btnCreateQueue}
+                                style={{ display: showBtnCreateQueue ? " " : "none", opacity: valueStruct >=1 ? '1' : '0.5' }}
+                                onClick={btnCreateQueue} 
                             >
                                     CRIAR FILA
                             </button>
 
                             <div className={styles.infos} style={{ display: showChooseLength ? "none": " "}}>
                                 <h3 style={{ display: showNextStep ? " " : "none"}}>Selecione a próxima operação</h3>
-                                {/* <h3 style={{ display: attentionIsFullQueue ? "" : "none"}}>A FILA ESTÁ CHEIA</h3> */}
                             </div>
 
                             <h3
@@ -352,15 +351,54 @@ export default function QueueInterative() {
 
                             <div className={styles.buttonsUser}>
                                     <div className={styles.line1}>
-                                        <button className={styles.buttonInterative} onClick={btnEnqueue}>ENFILEIRAR</button>
-                                        <button className={styles.buttonInterative} onClick={btnDequeue}>DESENFILEIRAR</button>
-                                        <button className={styles.buttonInterative}>IMPRIMIR FILA</button>
+                                        <button 
+                                            className={styles.buttonInterative}
+                                            style={{ opacity: showBtnCreateQueue ? "0.5" : "1" }}
+                                            onClick={btnEnqueue}
+                                        >
+                                            ENFILEIRAR
+                                        </button>
+
+                                        <button 
+                                            className={styles.buttonInterative} 
+                                            style={{ opacity: showBtnCreateQueue ? "0.5" : "1" }}
+                                            onClick={btnDequeue}
+                                        >
+                                            DESENFILEIRAR
+                                        </button>
+                                        
+                                        <button 
+                                            className={styles.buttonInterative}
+                                            style={{ opacity: showBtnCreateQueue ? "0.5" : "1" }}
+                                        >
+                                            IMPRIMIR FILA
+                                        </button>
                                     </div>
 
                                     <div className={styles.line2}>
-                                        <button className={styles.buttonInterative} onClick={btnIsEmpty}>FILA VAZIA</button>
-                                        <button className={styles.buttonInterative} onClick={btnIsFull}>FILA CHEIA</button>
-                                        <button className={styles.buttonInterative} onClick={btnFreeQueue}>LIBERAR FILA</button>
+                                        <button 
+                                            className={styles.buttonInterative} 
+                                            style={{ opacity: showBtnCreateQueue ? "0.5" : "1" }}
+                                            onClick={btnIsEmpty}
+                                        >
+                                                FILA VAZIA
+                                        </button>
+
+                                        <button 
+                                            className={styles.buttonInterative} 
+                                            style={{ opacity: showBtnCreateQueue ? "0.5" : "1" }}
+                                            onClick={btnIsFull}
+                                        >
+                                            FILA CHEIA
+                                        </button>
+
+                                        <button 
+                                            className={styles.buttonInterative} 
+                                            style={{ opacity: showBtnCreateQueue ? "0.5" : "1" }}
+                                            onClick={btnFreeQueue}
+                                        >
+                                            LIBERAR FILA
+                                        </button>
                                     </div>
                             </div>
                         </div>
@@ -411,7 +449,7 @@ QueueInterative.getLayout = function getLayout(page) {
                     iconName={faLinesLeaning}
                     linkStruct="/queue"
                     linkVisualization="/queue/visualization"
-                    linkExercicio="/queue/exercicio"
+                    linkExercicio="/queue/exercices"
                     methods={methods}
                 />
                 {page}

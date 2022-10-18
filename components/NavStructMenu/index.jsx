@@ -38,7 +38,7 @@ export default function NavStructMenu({
   return (
     <Row className={styles.header}>
       <Col lg={6} className={styles.headerTitle}>
-        <Link href={`/${linkStructLocal}`}>
+        <Link href={`${linkStructLocal}`}>
           <a className={styles.alink}>
             <FontAwesomeIcon icon={iconName} className={styles.icon} />
             {structName}
@@ -53,7 +53,7 @@ export default function NavStructMenu({
             <DropdownMenu>
               {methodsLocal?.map((method, index) => (
                 <DropdownItem key={index}>
-                  <Link href={`/${method.link}`}>
+                  <Link href={`${method.link}`}>
                     <a>{method.nameMethod}</a>
                   </Link>
                 </DropdownItem>
@@ -63,15 +63,15 @@ export default function NavStructMenu({
 
           <Button>
             {" "}
-            <Link href={`/${linkVisualizationLocal}`}>
-              <a>Visualização</a>
+            <Link href={`${linkVisualizationLocal}`}>
+              <a className={styles.alink}>Visualização</a>
             </Link>
           </Button>
 
           <Button>
             {" "}
-            <Link href={`/${linkExercicioLocal}`}>
-              <a>Exercícios</a>
+            <Link href={`${linkExercicioLocal}`}>
+              <a className={styles.alink}>Exercícios</a>
             </Link>
           </Button>
         </ButtonGroup>

@@ -22,3 +22,7 @@
 .icon {
   margin-right: 15px;
 }
+
+.alink:hover {
+  color: #fff;
+}

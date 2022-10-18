@@ -4,7 +4,7 @@ import NavStructMenu from "../../components/NavStructMenu";
 import { Container, Row, Col } from 'reactstrap'
 import { faSignal } from "@fortawesome/free-solid-svg-icons"
 
-export default function BubbleSort() {
+export default function BinarySearch() {
     return (
         <section>
             <Container>
@@ -50,17 +50,17 @@ export default function BubbleSort() {
     );
 }
 
-BubbleSort.getLayout = function getLayout(page) {
+BinarySearch.getLayout = function getLayout(page) {
      return (
-        <Layout pageTitle="DS-Learning | BubbleSort">
+        <Layout pageTitle="DS-Learning | Busca Binária">
             <Sidebar />
             <section>
                 <NavStructMenu 
-                    structName="BUBBLESORT"
+                    structName="BUSCA BINÁRIA"
                     iconName={faSignal}
-                    linkStruct="/bubblesort"
-                    linkVisualization="/bubblesort/visualization"
-                    linkExercicio="/bubblesort/exercicio"
+                    linkStruct="/binarySearch"
+                    linkVisualization="/binarySearch/visualization"
+                    linkExercicio="/binarySearch/exercicio"
                 />
                 {page}
             </section>

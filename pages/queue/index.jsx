@@ -66,7 +66,7 @@ Queue.getLayout = function getLayout(page) {
                     iconName={faLinesLeaning}
                     linkStruct="/queue"
                     linkVisualization="/queue/visualization"
-                    linkExercicio="/queue/exercicio"
+                    linkExercicio="/queue/exercices"
                     methods={methods}
                 />
                 {page}

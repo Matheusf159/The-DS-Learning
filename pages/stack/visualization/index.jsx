@@ -42,7 +42,7 @@ export default function StackInterative() {
 
   // Values inputs states
   const [valuePush, setValuePush] = useState(0);
-  const [valueStruct, setValueStruct] = useState(0);
+  const [valueStruct, setValueStruct] = useState('');
 
   const [valueListPush, setValueListPush] = useState([]);
 
@@ -209,7 +209,7 @@ export default function StackInterative() {
                       value={valueStruct} 
                       onChange={(v) => setValueStruct(v.target.value)}
                     >
-                        <option value="0">0</option>
+                        <option value="0"></option>
                         <option value="1">1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
@@ -327,19 +327,23 @@ export default function StackInterative() {
                 <div className={styles.buttonsLine}>
                   <button
                     className={styles.btnInterative}
-                    style={{ display: showBtnCreateStack ? "" : "none" }}
+                    style={{ display: showBtnCreateStack ? "" : "none", opacity: valueStruct >= 1 ? '1' : '0.5' }}
                     onClick={btnCreateStack}
                   >
                     CRIAR PILHA
                   </button>
+
                   <button
                     className={styles.btnInterative}
+                    style={{ opacity: showBtnCreateStack ? "0.5" : "1" }}
                     onClick={btnPushStack}
                   >
                     EMPILHAR
                   </button>
+
                   <button
                     className={styles.btnInterative}
+                    style={{ opacity: showBtnCreateStack ? "0.5" : "1" }}
                     onClick={btnPopStack}
                   >
                     DESEMPILHAR
@@ -349,16 +353,24 @@ export default function StackInterative() {
                 <div className={styles.buttonsLine}>
                   <button
                     className={styles.btnInterative}
+                    style={{ opacity: showBtnCreateStack ? "0.5" : "1" }}
                     onClick={btnTopStack}
                   >
                     TOPO
                   </button>
-                  <button className={styles.btnInterative} onClick={btnIsEmpty}>
+
+                  <button 
+                    className={styles.btnInterative}
+                    style={{ opacity: showBtnCreateStack ? "0.5" : "1" }}
+                    onClick={btnIsEmpty}
+                  >
                     ESTÁ VAZIA
                   </button>
+                  
                   <button
                     className={styles.btnInterative}
                     onClick={btnFreeStack}
+                    style={{ opacity: showBtnCreateStack ? "0.5" : "1" }}
                   >
                     LIBERAR
                   </button>
@@ -425,7 +437,7 @@ StackInterative.getLayout = function getLayout(page) {
           iconName={faLayerGroup} 
           linkStruct="/stack"
           linkVisualization="/stack/visualization"
-          linkExercicio="/stack/exercicio"
+          linkExercicio="/stack/exercices"
           methods={methods}
         />
         {page}
