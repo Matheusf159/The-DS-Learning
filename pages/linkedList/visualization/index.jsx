@@ -207,6 +207,9 @@ export default function LinkedListInterative() {
             setShowCodeIsFullQueue(false)
             setShowCodeSearch(false)
             setShowConfirmSearch(false)
+            setShowConfirmRemoveEnd(false)
+            setShowCodeRemoveEnd(false)
+            setShowConfirmInsertStart(false)
 
             setValueStruct(8)
             setValueInsert(0)
