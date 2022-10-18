@@ -1,9 +1,9 @@
 export const methods = [
-    { nameMethod: "Criar Lista", link: "stack/methods/createstack" },
-    { nameMethod: "Liberar Lista", link: "stack/methods/freestack" },
-    { nameMethod: "Inserir Incício", link: "stack/methods/isempty" },
-    { nameMethod: "Inserir Fim", link: "stack/methods/isfull" },
-    { nameMethod: "Remover Início", link: "stack/methods/pop" },
-    { nameMethod: "Remover Fim", link: "stack/methods/push" },
-    { nameMethod: "Buscar Elemento", link: "stack/methods/top" },
+    { nameMethod: "Criar Lista", link: "linkedList/methods/createLinkedList" },
+    { nameMethod: "Liberar Lista", link: "linkedList/methods/freeLinkedList" },
+    { nameMethod: "Inserir Incício", link: "linkedList/methods/insertStart" },
+    { nameMethod: "Inserir Fim", link: "linkedList/methods/insertEnd" },
+    { nameMethod: "Remover Início", link: "linkedList/methods/removeStart" },
+    { nameMethod: "Remover Fim", link: "linkedList/methods/removeEnd" },
+    { nameMethod: "Buscar Elemento", link: "linkedList/methods/searchElement" },
   ]
