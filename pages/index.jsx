@@ -28,6 +28,9 @@ export default function Home() {
                 plataforma Web, no qual é possível realizar manipulações de
                 estruturas de dados com resultados visuais.
               </p>
+              <p className="text-muted mb-4 pb-2">
+                <strong>Os códigos aqui utilizados, serão baseados na linguagem C.</strong>
+              </p>
               <a href="#" className="btn btn-warning">
                 Saber Mais <span className="ml-2 right-icon">&#8594;</span>
               </a>
