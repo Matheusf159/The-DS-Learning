@@ -68,21 +68,21 @@ export function Push() {
 }
 
 
-// Push.getLayout = function getLayout(page) {
-//   return (
-//     <Layout pageTitle="DS-Learning | Pilha">
-//       <Sidebar />
-//       <section>
-//         <NavStructMenu
-//           structName="PILHA"
-//           iconName={faLayerGroup}
-//           linkStruct="/stack"
-//           linkVisualization="/stack/visualization"
-//           linkExercicio="/stack/exercices"
-//           methods={methods}
-//         />
-//         {page}
-//       </section>
-//     </Layout>
-//   );
-// };
+Push.getLayout = function getLayout(page) {
+  return (
+    <Layout pageTitle="DS-Learning | Pilha">
+      <Sidebar />
+      <section>
+        <NavStructMenu
+          structName="PILHA"
+          iconName={faLayerGroup}
+          linkStruct="/stack"
+          linkVisualization="/stack/visualization"
+          linkExercicio="/stack/exercices"
+          methods={methods}
+        />
+        {page}
+      </section>
+    </Layout>
+  );
+};
