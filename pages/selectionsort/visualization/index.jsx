@@ -5,7 +5,7 @@ import Sidebar from "../../../components/Sidebar";
 import { faSignal } from "@fortawesome/free-solid-svg-icons"
 import { selectionSortMain } from '../../../components/SelectionSortMake'
 import { Container, Col, Row } from "reactstrap";
-import { SelectionSortCode } from '../../../components/SelectionSortCodes/CodesSelectionSort'
+import { SelectionSortCode } from '../../../components/SelectionSortComponents/SelectionSortCodes/CodesSelectionSort'
 
 import styles from '../../../styles/SelectionSortInterative.module.css'
 export default function SelectionSortInterative() {
@@ -195,7 +195,7 @@ SelectionSortInterative.getLayout = function getLayout(page) {
                    iconName={faSignal}
                    linkStruct="/selectionsort"
                    linkVisualization="/selectionsort/visualization"
-                   linkExercicio="/selectionsort/exercicio"
+                   linkExercicio="/selectionsort/exercices"
                />
                {page}
            </section>
