@@ -16,29 +16,28 @@ export default function Sidebar() {
 
       <span className={styles.nav_group_title}>Estruturas</span>
 
-      <Link href="/stack">
+      <Link href="/stack/visualization">
         <a>
           <FontAwesomeIcon icon={faLayerGroup} /> Pilha
         </a>
       </Link>
 
-      <Link href="/queue">
+      <Link href="/queue/visualization">
         <a><FontAwesomeIcon icon={faLinesLeaning} />Fila</a>
       </Link>
 
-      <Link href="/linkedList">
+      <Link href="/linkedList/visualization">
         <a><FontAwesomeIcon icon={faEllipsis} />Lista</a>
       </Link>
 
       <span className={styles.nav_group_title}>Outros Algoritmos</span>
-      <Link href="/selectionsort">
+      <Link href="/selectionsort/visualization">
         <a><FontAwesomeIcon icon={faSignal} />SelectionSort</a>
       </Link>
 
-      {/* /binarySearch */}
-      <Link href="#">
+      {/* <Link href="#">
         <a><FontAwesomeIcon icon={faMagnifyingGlass} />Busca Binária</a>
-      </Link>
+      </Link> */}
     </nav>
   );
 }

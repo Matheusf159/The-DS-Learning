@@ -43,7 +43,7 @@ export default function CreateQueue() {
                                     <code className={styles.codes}>{code}</code>
                                 </pre>
 
-                                <div>
+                                <div className={styles.description}>
                                     <p className={styles.pAnimation1}>
                                         Linha 2 aloca dinaminacmente o estrutura na memória
                                     </p>

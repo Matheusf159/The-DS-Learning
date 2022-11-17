@@ -4,7 +4,6 @@ import LinkedListPart from '../LinkedListComponents/LinkedListPart/LinkedListPar
 
 export default function LinkedListMake(props) {
     const listLinkedListPart = []
-    let listValueEnqueue1 = []
     
     const listValueEnqueue = props.listTest.map(e => parseInt(e, 10))
     

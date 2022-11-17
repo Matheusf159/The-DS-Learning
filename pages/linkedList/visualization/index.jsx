@@ -5,19 +5,22 @@ import Sidebar from "../../../components/Sidebar";
 import { faEllipsis } from "@fortawesome/free-solid-svg-icons";
 import { methods } from "../../../components/LinkedListComponents/methods";
 import styles from '../../../styles/LinkedListInterative.module.css'
-import { Container } from "reactstrap";
+import { Container, Col, Row } from "reactstrap";
 import LinkedListMake from '../../../components/LinkedListMake'
 
 import {
-    StructQueueCode,
-    CreateQueueCode,
-    DequeueCode,
-    EnqueueCode,
-    FreeQueueCode,
-    IsEmptyQueueCode,
-    IsFullQueueCode,
-    PrintQueueCode,
-} from '../../../components/QueueComponents/CodesQueue/CodesQueue'
+    StructLinkedListCode,
+    ListLinkedListCode,
+    CreateLinkedListCode,
+    InsertBeginCode,
+    InsertEndCode,
+    RemoveBeginCode,
+    RemoveEndCode,
+    IsEmptyCode,
+    ListPrintCode,
+    SearchNodeCode,
+    FreeLinkedListCode
+} from '../../../components/LinkedListComponents/CodesLinkedList/CodesLinkedList'
 
 export default function LinkedListInterative() {
     // values input
@@ -44,10 +47,14 @@ export default function LinkedListInterative() {
     const [showCodeSeacrh, setShowCodeSearch] = useState(false)
 
     const [flagSearch, setFlagSearch] = useState(false)
+    const [showStepsInsertBegin, setShowStepsInsertBegin] = useState(false)
+    const [showStepsInsertEnd, setShowStepsInsertEnd] = useState(false)
+    const [showStepsRemoveBegin, setShowStepsRemoveBegin] = useState(false)
+    const [showStepsRemoveEnd, setShowStepsRemoveEnd] =  useState(false)
+    const [showStepsIsEmpty, setShowStepsIsEmpty] =  useState(false)
 
-    const [showCodeIsEmptyQueue, setShowCodeIsEmptyQueue] = useState(false)
-    const [showCodeIsFullQueue, setShowCodeIsFullQueue] = useState(false)
-    const [showCodePrintQueue, setShowCodePrintQueue] = useState(false)
+    const [showCodeIsEmptyList, setShowCodeIsEmptyList] = useState(false)
+    const [showCodePrintList, setShowCodePrintList] = useState(false)
     
     const [showConfirmInsertEnd, setShowConfirmInsertEnd] = useState(true)
     const [showConfirmInsertStart, setShowConfirmInsertStart] = useState(true)
@@ -62,15 +69,15 @@ export default function LinkedListInterative() {
             setShowChooseLength(false)
             setShowNextStep(true)
             setShowBtnCreateLinkedList(false)
-
+            setShowCodeRemoveEnd(false)
             setShowCodeStructLinkedList(false)
             setShowCodeCreateLinkedList(true)
             setShowCodeRemoveStart(false)
             setShowCodeInsertEnd(false)
             setShowCodeFreeLinkedList(false)
-            setShowCodeIsEmptyQueue(false)
-            setShowCodeIsFullQueue(false)
-            setShowCodePrintQueue(false)
+            setShowCodeIsEmptyList(false)
+            setShowCodeInsertStart(false)
+            setShowCodePrintList(false)
             setShowCodeSearch(false)
             setShowConfirmSearch(false)
 
@@ -82,14 +89,14 @@ export default function LinkedListInterative() {
     function btnInsertEnd() {
         if(!showBtnCreateLinkedList) {
             setShowNextStep(false)
-
+            setShowCodeStructLinkedList(false)
             setShowCodeInsertEnd(true)
             setShowCodeCreateLinkedList(false)
             setShowCodeRemoveStart(false)
             setShowCodeFreeLinkedList(false)
-            setShowCodeIsEmptyQueue(false)
-            setShowCodeIsFullQueue(false)
-            setShowCodePrintQueue(false)
+            setShowCodeIsEmptyList(false)
+            setShowCodeRemoveEnd(false)
+            setShowCodePrintList(false)
             setShowCodeInsertStart(false)
             
             setShowCodeSearch(false)
@@ -98,8 +105,8 @@ export default function LinkedListInterative() {
 
         if (valueListInsert.length != valueStruct) {
             setShowConfirmInsertEnd(true)
-            setShowCodeIsEmptyQueue(false)
-            setShowCodeIsFullQueue(false)
+            setShowCodeIsEmptyList(false)
+            
             
         }
     }
@@ -107,15 +114,15 @@ export default function LinkedListInterative() {
     function btnInsertStart() {
         if(!showBtnCreateLinkedList) {
             setShowNextStep(false)
-
+            setShowCodeStructLinkedList(false)
             setShowCodeInsertStart(true)
             setShowCodeCreateLinkedList(false)
             setShowCodeRemoveStart(false)
             setShowCodeInsertEnd(false)
             setShowCodeFreeLinkedList(false)
-            setShowCodeIsEmptyQueue(false)
-            setShowCodeIsFullQueue(false)
-            setShowCodePrintQueue(false)
+            setShowCodeIsEmptyList(false)
+            setShowCodeRemoveEnd(false)
+            setShowCodePrintList(false)
             setShowCodeSearch(false)
             setShowConfirmSearch(false)
             setShowCodeSearch(false)
@@ -125,8 +132,8 @@ export default function LinkedListInterative() {
 
         if (valueListInsert.length != valueStruct) {
             setShowConfirmInsertStart(true)
-            setShowCodeIsEmptyQueue(false)
-            setShowCodeIsFullQueue(false)
+            setShowCodeIsEmptyList(false)
+            
             
         }
 
@@ -137,24 +144,28 @@ export default function LinkedListInterative() {
 
     function btnRemoveStart() {
         if (!showBtnCreateLinkedList) {
+            setShowCodeStructLinkedList(false)
             setShowCodeInsertEnd(false)
             setShowCodeRemoveStart(true)
             setShowCodeRemoveEnd(false)
             setShowCodeFreeLinkedList(false)
             setShowBtnCreateLinkedList(false)
-            setShowCodeIsEmptyQueue(false)
-            setShowCodeIsFullQueue(false)
-            setShowCodePrintQueue(false)
+            setShowCodeIsEmptyList(false)
+            setShowCodeCreateLinkedList(false)
+            setShowCodePrintList(false)
             setShowCodeSearch(false)
             setShowConfirmSearch(false)
-
-            
+            setShowCodeInsertStart(false)
+            setShowStepsIsEmpty(false)
+            setShowStepsRemoveBegin(true)
             setShowNextStep(false)
         }
 
         if (valueListInsert.length == 0) {
-            setShowConfirmRemoveStart(false);
-            setShowCodeIsEmptyQueue(true)
+            setShowConfirmRemoveStart(false)
+            setShowStepsRemoveBegin(false)
+            setShowCodeIsEmptyList(true)
+            setShowStepsIsEmpty(true)
         }
 
         if (valueListInsert.length == []) {
@@ -168,24 +179,29 @@ export default function LinkedListInterative() {
 
     function btnRemoveEnd() {
         if (!showBtnCreateLinkedList) {
+            setShowCodeStructLinkedList(false)
+            setShowCodeCreateLinkedList(false)
             setShowCodeInsertEnd(false)
             setShowCodeRemoveEnd(true)
             setShowCodeFreeLinkedList(false)
             setShowCodeRemoveStart(false)
             setShowBtnCreateLinkedList(false)
-            setShowCodeIsEmptyQueue(false)
-            setShowCodeIsFullQueue(false)
-            setShowCodePrintQueue(false)
+            setShowCodeIsEmptyList(false)
+            setShowCodePrintList(false)
             setShowCodeSearch(false)
             setShowConfirmSearch(false)
-
-            
+            setShowCodeInsertStart(false)
+            setShowStepsInsertBegin(false)
+            setShowStepsRemoveEnd(true)
             setShowNextStep(false)
         }
 
         if (valueListInsert.length == 0) {
             setShowConfirmRemoveEnd(false);
-            setShowCodeIsEmptyQueue(true)
+            setShowCodeIsEmptyList(true)
+            setShowStepsIsEmpty(true)
+            setShowStepsRemoveEnd(false)
+            
         }
 
         if (valueListInsert.length == []) {
@@ -199,12 +215,13 @@ export default function LinkedListInterative() {
 
     function btnFreeLinkedList() {
         if (!showBtnCreateLinkedList && valueStruct > 0) {
+            setShowCodeStructLinkedList(false)
             setShowCodeInsertEnd(false)
             setShowCodeCreateLinkedList(false)
             setShowCodeRemoveStart(false)
-            setShowCodeIsEmptyQueue(false)
+            setShowCodeIsEmptyList(false)
             setShowCodeFreeLinkedList(true)
-            setShowCodeIsFullQueue(false)
+            setShowCodeInsertStart(false)
             setShowCodeSearch(false)
             setShowConfirmSearch(false)
             setShowConfirmRemoveEnd(false)
@@ -225,7 +242,8 @@ export default function LinkedListInterative() {
     }
 
     function btnSearchElement() {
-        if(!showBtnCreateLinkedList) {
+        if(!showBtnCreateLinkedList && valueListInsert != 0) {
+            setShowCodeStructLinkedList(false)
             setShowNextStep(false)
             setShowCodeSearch(true)
             setShowConfirmSearch(true)
@@ -233,9 +251,9 @@ export default function LinkedListInterative() {
             setShowCodeCreateLinkedList(false)
             setShowCodeRemoveStart(false)
             setShowCodeFreeLinkedList(false)
-            setShowCodeIsEmptyQueue(false)
-            setShowCodeIsFullQueue(false)
-            setShowCodePrintQueue(false)
+            setShowCodeIsEmptyList(false)
+            setShowCodeRemoveEnd(false)
+            setShowCodePrintList(false)
             setShowCodeInsertStart(false)
             
         }
@@ -243,7 +261,8 @@ export default function LinkedListInterative() {
 
     function confirmSearch() {
         if(!valueListInsert.length == []) {
-            setFlagSearch(true)
+            setFlagSearch(() => {return true})
+        
         }
     }
 
@@ -281,251 +300,256 @@ export default function LinkedListInterative() {
 
     function confirmRemoveStart() {
         setValueListInsert(valueListInsert.slice(1, valueListInsert.length))
-        setShowCodeIsEmptyQueue(false)
+        setShowCodeIsEmptyList(false)
 
         if (valueListInsert.length <= 1) setShowConfirmRemoveStart(false)
     }
 
     function confirmRemoveEnd() {
         setValueListInsert(valueListInsert.slice(0, -1))
-        setShowCodeIsEmptyQueue(false)
+        setShowCodeIsEmptyList(false)
 
         if (valueListInsert.length <= 1) setShowConfirmRemoveStart(false)
     }
+    
+
+    useEffect(() => {
+        setFlagSearch(() => {return false})
+    }, [valueSearch])
 
     return (
         <Container>
-                <div className={styles.container}>
-                    <section className={styles.buttonsCodes}>
-                        <div className={styles.buttons}>
-                            
-                            
+            <Row className={styles.buttonsCodes}>
+                <button 
+                    className={styles.buttonInterative}
+                    style={{ display: showBtnCreateLinkedList ? " " : "none", opacity: valueStruct >=1 ? '1' : '0.5' }}
+                    onClick={btnCreateLinkedList} 
+                >
+                        CRIAR LISTA
+                </button>
+
+                <div className={styles.infos} style={{ display: showChooseLength ? "none": " "}}>
+                    <h3 style={{ display: showNextStep ? " " : "none"}}>Selecione a próxima operação</h3>
+                </div>
+
+                <Row
+                    xs="auto"
+                    className={styles.contentInput}
+                    style={{ display: showCodeInsertEnd ? "": "none"}}
+                >
+                    <p className={styles.funcInput}>inserir_fim{"("}l, </p>
+
+                    <Col>
+                        <input
+                            type="number"
+                            name="name"
+                            min="0" 
+                            max="999"
+                            maxLength="4"
+                            className={styles.inputValues}
+                            value={valueInsert}
+                            onChange={(v) => {
+                                const limit = 3;
+                                setValueInsert(v.target.value.slice(0, limit))
+                            }}
+                        />
+                    </Col>
+
+                    <p className={styles.funcInput}>{")"}</p>
+                
+                    <button
+                        className={styles.buttonInterative}
+                        style={{ display: showConfirmInsertEnd ? " " : "none" }}
+                        type="submit"
+                        onClick={confirmInsertEnd}
+                        >
+                        CONFIRMAR
+                    </button>
+                </Row>
+                
+                <Row
+                    xs="auto"
+                    className={styles.contentInput}
+                    style={{ display: showCodeInsertStart ? "": "none"}}
+                >
+                    <p className={styles.funcInput}>inserir_inicio{"("}l,</p>
+
+                    <Col>
+                        <input
+                            type="number"
+                            name="name"
+                            min="0" 
+                            max="999"
+                            maxLength="4"
+                            className={styles.inputValues}
+                            value={valueInsert}
+                            onChange={(v) => {
+                                const limit = 3;
+                                setValueInsert(v.target.value.slice(0, limit))
+                            }}
+                        />
+                    </Col>
+                    <p className={styles.funcInput}>{")"}</p>
+
+                    <button
+                        className={styles.buttonInterative}
+                        style={{ display: showConfirmInsertStart ? " " : "none" }}
+                        type="submit"
+                        onClick={confirmInsertStart}
+                    >
+                        CONFIRMAR
+                    </button>
+                </Row>
+                
+                <Row
+                    xs="auto"
+                    className={styles.contentInput}
+                    style={{ display: showCodeSeacrh ? "": "none"}}
+                >
+                    <p className={styles.funcInput}>search{"("}l,</p>
+                    
+                    <Col>
+                        <input
+                            type="number"
+                            name="name"
+                            min="0" 
+                            max="999"
+                            maxLength="4"
+                            className={styles.inputValues}
+                            value={valueSearch}
+                            onChange={(v) => {
+                                const limit = 3;
+                                setValueSearch(v.target.value.slice(0, limit))
+                                setFlagSearch(false)
+                            }}
+                        />
+                    </Col>
+                
+                    <p className={styles.funcInput}>{")"}</p>
+                
+                    <button
+                        className={styles.buttonInterative}
+                        style={{ display: showConfirmSearch ? " " : "none" }}
+                        type="submit"
+                        onClick={confirmSearch}
+                    >
+                        CONFIRMAR
+                    </button>
+                </Row>
+
+                <div
+                    className={styles.contentInput}
+                    style={{ display: showCodeRemoveStart ? "" : "none" }}
+                >
+                    <p className={styles.funcInput}>remover_inicio(f)</p>
+
+                    <button
+                        className={styles.buttonInterative}
+                        style={{ display: showConfirmRemoveStart ? "" : "none" }}
+                        type="submit"
+                        onClick={confirmRemoveStart}
+                    >
+                        CONFIRMAR
+                    </button>
+                </div>
+
+                <div
+                    className={styles.contentInput}
+                    style={{ display: showCodeRemoveEnd ? "" : "none" }}
+                >
+                    <p className={styles.funcInput}>remover_fim(f)</p>
+
+                    <button
+                        className={styles.buttonInterative}
+                        style={{ display: showConfirmRemoveEnd ? "" : "none" }}
+                        type="submit"
+                        onClick={confirmRemoveEnd}
+                    >
+                        CONFIRMAR
+                    </button>
+                </div>
+
+                <Row className={styles.buttonsUser}>
                             <button 
                                 className={styles.buttonInterative}
-                                style={{ display: showBtnCreateLinkedList ? " " : "none", opacity: valueStruct >=1 ? '1' : '0.5' }}
-                                onClick={btnCreateLinkedList} 
+                                style={{ opacity: showBtnCreateLinkedList ? "0.5" : "1" }}
+                                onClick={btnInsertEnd}
                             >
-                                    CRIAR LISTA
+                                INSERIR FIM
                             </button>
 
-                            <div className={styles.infos} style={{ display: showChooseLength ? "none": " "}}>
-                                <h3 style={{ display: showNextStep ? " " : "none"}}>Selecione a próxima operação</h3>
-                            </div>
-
-                            <div
-                                className={styles.contentInput}
-                                style={{ display: showCodeInsertEnd ? "": "none"}}
+                            <button 
+                                className={styles.buttonInterative}
+                                style={{ opacity: showBtnCreateLinkedList ? "0.5" : "1" }}
+                                onClick={btnInsertStart}
                             >
-                                <p className={styles.funcInput}>inserir_fim{"("}f,</p>
+                                INSERIR INÍCIO
+                            </button>
 
-                                <input
-                                    type="number"
-                                    name="name"
-                                    min="0" 
-                                    max="999"
-                                    maxLength="4"
-                                    className={styles.inputValues}
-                                    value={valueInsert}
-                                    onChange={(v) => {
-                                        const limit = 3;
-                                        setValueInsert(v.target.value.slice(0, limit))
-                                    }}
-                                />
-
-                                <p className={styles.funcInput}>{")"}</p>
-
-                                <button
-                                    className={styles.buttonInterative}
-                                    style={{ display: showConfirmInsertEnd ? " " : "none" }}
-                                    type="submit"
-                                    onClick={confirmInsertEnd}
-                                >
-                                    CONFIRMAR
-                                </button>
-                            </div>
-                            
-                            <div
-                                className={styles.contentInput}
-                                style={{ display: showCodeInsertStart ? "": "none"}}
+                            <button 
+                                className={styles.buttonInterative} 
+                                style={{ opacity: (showBtnCreateLinkedList || (valueListInsert.length == 0)) ? "0.5" : "1" }}
+                                onClick={btnSearchElement}
                             >
-                                <p className={styles.funcInput}>inserir_inicio{"("}f,</p>
-
-                                <input
-                                    type="number"
-                                    name="name"
-                                    min="0" 
-                                    max="999"
-                                    maxLength="4"
-                                    className={styles.inputValues}
-                                    value={valueInsert}
-                                    onChange={(v) => {
-                                        const limit = 3;
-                                        setValueInsert(v.target.value.slice(0, limit))
-                                    }}
-                                />
-
-                                <p className={styles.funcInput}>{")"}</p>
-
-                                <button
-                                    className={styles.buttonInterative}
-                                    style={{ display: showConfirmInsertStart ? " " : "none" }}
-                                    type="submit"
-                                    onClick={confirmInsertStart}
-                                >
-                                    CONFIRMAR
-                                </button>
-                            </div>
-
-                            <div
-                                className={styles.contentInput}
-                                style={{ display: showCodeSeacrh ? "": "none"}}
+                                BUSCAR ELEMENTO
+                            </button> 
+                        
+                            <button 
+                                className={styles.buttonInterative} 
+                                style={{ opacity: showBtnCreateLinkedList ? "0.5" : "1" }}
+                                onClick={btnRemoveEnd}
                             >
-                                <p className={styles.funcInput}>search{"("}l,</p>
+                                    REMOVER FIM
+                            </button>
 
-                                <input
-                                    type="number"
-                                    name="name"
-                                    min="0" 
-                                    max="999"
-                                    maxLength="4"
-                                    className={styles.inputValues}
-                                    value={valueSearch}
-                                    onChange={(v) => {
-                                        const limit = 3;
-                                        setValueSearch(v.target.value.slice(0, limit))
-                                    }}
-                                />
-
-                                <p className={styles.funcInput}>{")"}</p>
-
-                                <button
-                                    className={styles.buttonInterative}
-                                    style={{ display: showConfirmSearch ? " " : "none" }}
-                                    type="submit"
-                                    onClick={confirmSearch}
-                                >
-                                    CONFIRMAR
-                                </button>
-                            </div>
-
-                            <div
-                                className={styles.contentInput}
-                                style={{ display: showCodeRemoveStart ? "" : "none" }}
+                            <button 
+                                className={styles.buttonInterative} 
+                                style={{ opacity: showBtnCreateLinkedList ? "0.5" : "1" }}
+                                onClick={btnRemoveStart}
                             >
-                                <p className={styles.funcInput}>remover_inicio(f)</p>
+                                REMOVER INÍCIO
+                            </button>
 
-                                <button
-                                    className={styles.buttonInterative}
-                                    style={{ display: showConfirmRemoveStart ? "" : "none" }}
-                                    type="submit"
-                                    onClick={confirmRemoveStart}
-                                >
-                                    CONFIRMAR
-                                </button>
-                            </div>
-
-                            <div
-                                className={styles.contentInput}
-                                style={{ display: showCodeRemoveEnd ? "" : "none" }}
+                            <button 
+                                className={styles.buttonInterative} 
+                                style={{ opacity: showBtnCreateLinkedList ? "0.5" : "1" }}
+                                onClick={btnFreeLinkedList}
                             >
-                                <p className={styles.funcInput}>remover_fim(f)</p>
+                                LIBERAR LISTA
+                            </button>
+                </Row>
+            </Row>
+            
+            <Row className={styles.codes}>
+                <div style={{display: 'flex', flexDirection: 'row'}}>
+                    <StructLinkedListCode show={showCodeStructLinkedList} />
+                    <ListLinkedListCode show={showCodeStructLinkedList} />
 
-                                <button
-                                    className={styles.buttonInterative}
-                                    style={{ display: showConfirmRemoveEnd ? "" : "none" }}
-                                    type="submit"
-                                    onClick={confirmRemoveEnd}
-                                >
-                                    CONFIRMAR
-                                </button>
-                            </div>
+                    <CreateLinkedListCode show={showCodeCreateLinkedList} />
 
-                            <div className={styles.buttonsUser}>
-                                    <div className={styles.line1}>
-                                        <button 
-                                            className={styles.buttonInterative}
-                                            style={{ opacity: showBtnCreateLinkedList ? "0.5" : "1" }}
-                                            onClick={btnInsertEnd}
-                                        >
-                                            INSERIR FIM
-                                        </button>
+                    <InsertBeginCode show={showCodeInsertStart} showSteps={showStepsInsertBegin} />
+                    <InsertEndCode show={showCodeInsertEnd} showSteps={showStepsInsertEnd} />
 
-                                        <button 
-                                            className={styles.buttonInterative}
-                                            style={{ opacity: showBtnCreateLinkedList ? "0.5" : "1" }}
-                                            onClick={btnInsertStart}
-                                        >
-                                            INSERIR INÍCIO
-                                        </button>
+                    <RemoveBeginCode show={showCodeRemoveStart} showSteps={showStepsRemoveBegin} />
+                    <RemoveEndCode show={showCodeRemoveEnd} showSteps={showStepsRemoveEnd} />
 
-                                        <button 
-                                            className={styles.buttonInterative} 
-                                            style={{ opacity: showBtnCreateLinkedList ? "0.5" : "1" }}
-                                            onClick={btnSearchElement}
-                                        >
-                                            BUSCAR ELEMENTO
-                                        </button> 
-                                    </div>
+                    <IsEmptyCode show={showCodeIsEmptyList} showSteps={showStepsIsEmpty} />
+                    <ListPrintCode show={showCodePrintList} /> 
 
-                                    <div className={styles.line2}>
-                                        <button 
-                                            className={styles.buttonInterative} 
-                                            style={{ opacity: showBtnCreateLinkedList ? "0.5" : "1" }}
-                                            onClick={btnRemoveEnd}
-                                        >
-                                                REMOVER FIM
-                                        </button>
+                    <SearchNodeCode show={showCodeSeacrh} />
+                    <FreeLinkedListCode show={showCodeFreeLinkedList} />
+                </div>
+            </Row>
 
-                                        <button 
-                                            className={styles.buttonInterative} 
-                                            style={{ opacity: showBtnCreateLinkedList ? "0.5" : "1" }}
-                                            onClick={btnRemoveStart}
-                                        >
-                                            REMOVER INÍCIO
-                                        </button>
-
-                                        <button 
-                                            className={styles.buttonInterative} 
-                                            style={{ opacity: showBtnCreateLinkedList ? "0.5" : "1" }}
-                                            onClick={btnFreeLinkedList}
-                                        >
-                                            LIBERAR LISTA
-                                        </button>
-                                    </div>,
-                            </div>
-                        </div>
-
-                        <div className={styles.codes}>
-                            {/* <StructQueueCode
-                                show={showCodeStructLinkedList}
-                                inputValue={valueStruct}
-                                listTest={valueListInsert}
-                            />
-
-                            <CreateQueueCode show={showCodeCreateLinkedList} />
-
-                            <EnqueueCode
-                                show={showCodeInsertEnd}
-                                inputValue={valueInsert}
-                            /> */}
-
-                            {/* <DequeueCode show={showCodeRemoveStart} />
-                            <FreeQueueCode show={showCodeFreeLinkedList} />
-                            <IsEmptyQueueCode show={showCodeIsEmptyQueue} />
-                            <IsFullQueueCode show={showCodeIsFullQueue} /> */}
-                        </div>
-                    </section>
-
-                    <section className={styles.queueInterative}>
-                        <LinkedListMake 
-                            valueStruct={valueStruct} 
-                            listTest={valueListInsert}
-                            end={valueListInsert.length}
-                            flag={flagSearch}
-                            searchElement={valueSearch}
-                        />
-                    </section>
-                </div> 
+            <Row className={styles.queueInterative}>
+                <LinkedListMake 
+                    valueStruct={valueStruct} 
+                    listTest={valueListInsert}
+                    end={valueListInsert.length}
+                    flag={flagSearch}
+                    searchElement={valueSearch}
+                />
+            </Row>
         </Container>
 
     )

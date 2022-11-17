@@ -1,5 +1,5 @@
 .codes {
-    font-size: 20px;
+    font-size: 14px;
 }
 
 .method {
@@ -21,12 +21,15 @@
     animation-fill-mode: forwards;
     color: rgb(72, 72, 72);;
     font-weight: bold;
+    font-size: 14px;
+    
 }
 .pAnimation2 {
     animation: fadeInAnimation ease-out 4s;
     animation-fill-mode: forwards;
     color: rgb(72, 72, 72);;
     font-weight: bold;
+    font-size: 14px;
     text-align: justify;
 
 }
@@ -35,6 +38,28 @@
     animation-fill-mode: forwards;
     color: rgb(72, 72, 72);;
     font-weight: bold;
+    font-size: 14px;
+}
+.pAnimation4 {
+    animation: fadeInAnimation ease-out 8s;
+    animation-fill-mode: forwards;
+    color: rgb(72, 72, 72);;
+    font-weight: bold;
+    font-size: 14px;
+}
+.pAnimation5 {
+    animation: fadeInAnimation ease-out 10s;
+    animation-fill-mode: forwards;
+    color: rgb(72, 72, 72);;
+    font-weight: bold;
+    font-size: 14px;
+}
+.pAnimation6 {
+    animation: fadeInAnimation ease-out 12s;
+    animation-fill-mode: forwards;
+    color: rgb(72, 72, 72);;
+    font-weight: bold;
+    font-size: 14px;
 }
 
 @keyframes fadeInAnimation {

@@ -1,12 +1,3 @@
-
-.wrapper {
-    display: flex;
-}
-
-.displayFlex {
-    display: flex;
-}
-
 .divAttention {
     display: flex;
     flex-direction: column;
@@ -18,6 +9,10 @@
     font-size: 16;
     color: rgb(72, 72, 72);
     font-weight: bold;
+}
+
+.displayFlex {
+    display: flex;
 }
 
 .paragraph { 
@@ -54,6 +49,12 @@
     height: 100vh;
 }
 
+.testes {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .rightLeft {
     display: flex;
     flex-direction: column;
@@ -63,12 +64,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
-    height: 100px;
-    /* border-bottom: 1px solid black; */
 }
-
-
 
 .inputStructStack {
     width: 50px;
@@ -80,6 +76,9 @@
 
 .contentInput {
     display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    /* align-items: center; */
 }
 
 .funcInput {
@@ -90,6 +89,7 @@
 
 .inputValues{
     margin-top: 10px;
+    margin-left: -12px;
     font-weight: bold;
     text-align: center;
     font-size: 25px;
@@ -99,15 +99,27 @@
 
 .buttonsInterative {
     display: flex;
-    flex-direction: column;
-    justify-content: space-around;
+    justify-content: space-evenly;
     align-items: center;
-    height: 199px;
+    /* height: 120px; */
 }
 
 .btnInterative {
     margin-left: 10px;
     margin-right: 10px;
+    margin-top: 18px;
+    height: 50px;
+    width: 170px;
+    background-color: rgb(72, 72, 72);
+    border-radius: 6px;
+    color: white;
+    font-weight: bold;
+
+}
+.btnInterativeUser {
+    margin-left: 10px;
+    margin-right: 10px;
+    /* margin-top: 228px; */
     height: 50px;
     width: 170px;
     background-color: rgb(72, 72, 72);
@@ -124,7 +136,9 @@
 
 .buttonsLine {
     display: flex;
-    justify-content: space-around;
+    align-items: center;
+    /* justify-content: center; */
+    /* justify-content: space-evenly; */
 }
 
 
@@ -134,14 +148,6 @@
     justify-content: center;
 
     /* border-top: 2px solid black; */
-}
-
-.rightRight {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    /* border-left: 2px solid black; */
 }
 
 .attention {

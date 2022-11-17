@@ -14,11 +14,11 @@ export default function StackMake(props) {
         }
 
         if(i == 1 && props.topValue == 1) {
-            listStackPart.push(<StackPart valuePush={listValuePush[i-1]} top="topo" />)
+            listStackPart.push(<StackPart valuePush={listValuePush[i-1]} top="TOPO" />)
         }
 
         if(i == props.topValue && i != 1) {
-            listStackPart.push(<StackPart valuePush={listValuePush[i-1]} top="topo" />)
+            listStackPart.push(<StackPart valuePush={listValuePush[i-1]} top="TOPO" />)
         }
         
         if(i != 1 && i != props.topValue) {
@@ -28,7 +28,7 @@ export default function StackMake(props) {
 
     console.log("listStackPart.map((s) => s)", listStackPart.map((s) => s.props.valuePush))
     return (
-        <div className={styles.container}>
+        <div className={styles.container} style={{ marginTop: '20px'}}>
             {listStackPart.map((s) => s)}
         </div>
     )

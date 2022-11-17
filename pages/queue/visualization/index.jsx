@@ -5,7 +5,7 @@ import Sidebar from "../../../components/Sidebar";
 import { faLinesLeaning } from "@fortawesome/free-solid-svg-icons";
 import { methods } from "../../../components/QueueComponents/methods";
 import styles from '../../../styles/QueueInterative.module.css'
-import { Container } from "reactstrap";
+import { Container, Row, Col } from "reactstrap";
 import QueueMake from '../../../components/QueueMake'
 
 import {
@@ -42,6 +42,9 @@ export default function QueueInterative() {
     const [showCodeIsFullQueue, setShowCodeIsFullQueue] = useState(false)
     const [showCodePrintQueue, setShowCodePrintQueue] = useState(false)
     
+    const [showStepsEnqueue, setShowStepsEnqueue] = useState(false)
+    const [showStepsDequeue, setShowStepsDequeue] = useState(false)
+
     const [showConfirmEnqueue, setShowConfirmEnqueue] = useState(true)
     const [showConfirmDequeue, setShowConfirmDequeue] = useState(true)
 
@@ -66,6 +69,7 @@ export default function QueueInterative() {
             setShowCodeIsEmptyQueue(false)
             setShowCodeIsFullQueue(false)
             setShowCodePrintQueue(false)
+            setShowStepsEnqueue(false)
 
             setAttentionFreeQueue(false)
             setAttentionIsEmptyQueue(false)
@@ -83,12 +87,12 @@ export default function QueueInterative() {
             setShowCodeIsEmptyQueue(false)
             setShowCodeIsFullQueue(false)
             setShowCodePrintQueue(false)
+            setShowStepsEnqueue(false)
 
             setAttentionIsEmptyQueue(false)
         }
 
         if (valueListEnqueue.length != valueStruct) {
-            console.log("adadaddd")
             setShowConfirmEnqueue(true)
             setShowCodeIsEmptyQueue(false)
             setShowCodeIsFullQueue(false)
@@ -105,6 +109,8 @@ export default function QueueInterative() {
             setShowCodeIsEmptyQueue(false)
             setShowCodeIsFullQueue(false)
             setShowCodePrintQueue(false)
+            setShowCodeCreateQueue(false)
+            setShowStepsEnqueue(false)
 
             setAttentionIsEmptyQueue(false)
             setShowNextStep(false)
@@ -132,6 +138,9 @@ export default function QueueInterative() {
             setShowCodeIsEmptyQueue(false)
             setShowCodeFreeQueue(true)
             setShowCodeIsFullQueue(false)
+            setShowCodePrintQueue(false)
+            setShowStepsEnqueue(false)
+            setShowCodeStructQueue(true)
 
             setValueStruct(0)
             setValueEnqueue(0)
@@ -144,7 +153,6 @@ export default function QueueInterative() {
         }
 
         if (valueStruct <= 0) {
-            console.log("entrou aqui")
             setAttentionFreeQueue(true)
         }
     }
@@ -158,6 +166,8 @@ export default function QueueInterative() {
             setShowCodeStructQueue(false)
             setShowCodeIsEmptyQueue(true)
             setShowCodeIsFullQueue(false)
+            setShowCodePrintQueue(false)
+            setAttentionIsFullQueue(false)
 
             setShowConfirmEnqueue(false)
             setShowConfirmDequeue(false)
@@ -174,6 +184,9 @@ export default function QueueInterative() {
             setShowCodeStructQueue(false)
             setShowCodeIsEmptyQueue(false)
             setShowCodeIsFullQueue(true)
+            setShowCodePrintQueue(false)
+            setShowStepsEnqueue(false)
+            setAttentionIsEmptyQueue(false)
 
             setShowConfirmEnqueue(false)
             setShowConfirmDequeue(false)
@@ -181,132 +194,205 @@ export default function QueueInterative() {
         }
     }
 
-    function confirmEnqueue() {
-        if(valueListEnqueue.length < valueStruct && valueEnqueue != '')
-            setValueListEnqueue([...valueListEnqueue, valueEnqueue])
-        
-        if(valueListEnqueue.length == valueStruct - 1) {
-            setShowConfirmEnqueue(false)
-        }
-
-        if(valueListEnqueue.length == valueStruct - 1) {
+    function btnPrintQueue() {
+        if (!showBtnCreateQueue) {
+            setShowCodeCreateQueue(false)
             setShowCodeEnqueue(false)
+            setShowCodeDequeue(false)
+            setShowCodeFreeQueue(false)
+            setShowCodeStructQueue(false)
+            setShowCodeIsEmptyQueue(false)
+            setShowCodeIsFullQueue(false)
+            setShowCodePrintQueue(true)
+            setShowStepsEnqueue(false)
 
-            setAttentionIsFullQueue(true)
+            setShowConfirmEnqueue(false)
+            setShowConfirmDequeue(false)
+            setAttentionIsFullQueue(false)
+        }
+    }
+
+    function confirmEnqueue() {
+        setShowStepsEnqueue(true)
+        setShowConfirmEnqueue(false)
+
+        if(showStepsEnqueue) {
+            if(valueListEnqueue.length < valueStruct && valueEnqueue != '')
+                setValueListEnqueue([...valueListEnqueue, valueEnqueue])
+                
+                if(valueListEnqueue.length == valueStruct - 1) {
+                    setShowConfirmEnqueue(false)
+                }
+
+                if(valueListEnqueue.length == valueStruct - 1) {
+                    setShowCodeEnqueue(false)
+                    
+                    setAttentionIsFullQueue(true)
+                }
+                
+                setShowConfirmEnqueue(true)
+        } else {
+            setTimeout(() => {
+                if(valueListEnqueue.length < valueStruct && valueEnqueue != '')
+                setValueListEnqueue([...valueListEnqueue, valueEnqueue])
+                
+                if(valueListEnqueue.length == valueStruct - 1) {
+                    setShowConfirmEnqueue(false)
+                }
+
+                if(valueListEnqueue.length == valueStruct - 1) {
+                    setShowCodeEnqueue(false)
+                    
+                    setAttentionIsFullQueue(true)
+                }
+                
+                setShowConfirmEnqueue(true)
+            }, 7000);
         }
     }
 
     function confirmDequeue() {
-        setValueListEnqueue(valueListEnqueue.slice(1, valueListEnqueue.length))
-        setShowCodeIsEmptyQueue(false)
-
-        if (valueListEnqueue.length <= 1) setShowConfirmDequeue(false)
+        setShowStepsDequeue(true)
+        setShowConfirmDequeue(false)
         
-        if(valueListEnqueue.length != valueStruct - 1) {
-            console.log("Entrou")
-            setAttentionIsFullQueue(false)}
+        if(showStepsDequeue) {
+            setValueListEnqueue(valueListEnqueue.slice(1, valueListEnqueue.length))
+            setShowCodeIsEmptyQueue(false)
+            
+            if (valueListEnqueue.length <= 1){ 
+                setShowConfirmDequeue(false)
+            } else {
+                setShowConfirmDequeue(true)
+            }
+            
+            if(valueListEnqueue.length != valueStruct - 1) {
+                console.log("Entrou")
+                setAttentionIsFullQueue(false)
+            }
+                
+        } else {
+            setTimeout(() => {
+                setValueListEnqueue(valueListEnqueue.slice(1, valueListEnqueue.length))
+                setShowCodeIsEmptyQueue(false)
+                
+                if (valueListEnqueue.length <= 1){ 
+                    setShowConfirmDequeue(false)
+                } else {
+                    setShowConfirmDequeue(true)
+                }
+                
+                if(valueListEnqueue.length != valueStruct - 1) {
+                    console.log("Entrou")
+                    setAttentionIsFullQueue(false)
+                }
+                    
+            }, 7000);
+        }
     }
 
     return (
         <Container>
-                <div className={styles.container}>
-                    <section className={styles.buttonsCodes}>
-                        <div className={styles.buttons}>
-                            <div 
-                                className={styles.userInfo}
-                                style={{ display: showChooseLength ? " " : "none"}}
-                            >
-                                <h3>Escolha o tamanho da fila de 1 a 7:</h3>
+            <Row>
+                <div className={styles.buttons}>
+                    <div 
+                        className={styles.userInfo}
+                        style={{ display: showChooseLength ? " " : "none"}}
+                    >
+                        <h3>Escolha o tamanho da fila de 1 a 7:</h3>
 
-                                <select 
-                                    className={styles.inputStructQueue}
-                                    value={valueStruct}
-                                    onChange={(q) => setValueStruct(q.target.value)}
-                                >
-                                    <option value="0"></option>
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                    <option value="4">4</option>
-                                    <option value="5">5</option>
-                                    <option value="6">6</option>
-                                    <option value="7">7</option>
-                                </select>
+                        <select 
+                            className={styles.inputStructQueue}
+                            value={valueStruct}
+                            onChange={(q) => setValueStruct(q.target.value)}
+                        >
+                            <option value="0"></option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                        </select>
 
-                            </div>
-                            
-                            <button 
-                                className={styles.buttonInterative}
-                                style={{ display: showBtnCreateQueue ? " " : "none", opacity: valueStruct >=1 ? '1' : '0.5' }}
-                                onClick={btnCreateQueue} 
-                            >
-                                    CRIAR FILA
-                            </button>
+                    </div>
+                    
+                    <button 
+                        className={styles.buttonInterative}
+                        style={{ display: showBtnCreateQueue ? " " : "none", opacity: valueStruct >=1 ? '1' : '0.5' }}
+                        onClick={btnCreateQueue} 
+                    >
+                            CRIAR FILA
+                    </button>
 
-                            <div className={styles.infos} style={{ display: showChooseLength ? "none": " "}}>
-                                <h3 style={{ display: showNextStep ? " " : "none"}}>Selecione a próxima operação</h3>
-                            </div>
+                    <div className={styles.infos} style={{ display: showChooseLength ? "none": " "}}>
+                        <h3 style={{ display: showNextStep ? " " : "none"}}>Selecione a próxima operação</h3>
+                    </div>
 
-                            <h3
-                                className={styles.attention}
-                                style={{ display: attentionFreeQueue ? " " : "none" }}
-                            >
-                                NÃO HÁ FILA PARA LIBERAR, SELECIONE O TAMANHO PARA
-                                ALOCAÇÃO DE MEMÓRIA DA FILA
-                            </h3>
+                    <h3
+                        className={styles.attention}
+                        style={{ display: attentionFreeQueue ? " " : "none" }}
+                    >
+                        NÃO HÁ FILA PARA LIBERAR, SELECIONE O TAMANHO PARA
+                        ALOCAÇÃO DE MEMÓRIA DA FILA
+                    </h3>
 
-                            <div
-                                className={styles.divAttention}
-                                style={{ display: attentionIsEmptyQueue ? "" : "none" }}
-                            >
-                                {valueListEnqueue.length > 0 ? (
-                                    <p className={styles.paragraph}>
-                                        A FILA NÃO ESTÁ VAZIA, POIS POSSUI OS VALORES: {" "}
+                    <div
+                        className={styles.divAttention}
+                        style={{ display: attentionIsEmptyQueue ? "" : "none" }}
+                    >
+                        {valueListEnqueue.length > 0 ? (
+                            <p className={styles.paragraph}>
+                                A FILA NÃO ESTÁ VAZIA, POIS POSSUI OS VALORES: {" "}
+                            </p>
+                        ) : (
+                            <p className={styles.paragraph}>
+                                A PILHA ESTÁ VAZIA
+                            </p>
+                        )
+                        }
+
+                        <div className={styles.infos}>
+                            {valueListEnqueue.length > 0 ?
+                                valueListEnqueue.map((e) => (
+                                    <p
+                                        className={styles.valueListEnqueueStyle}
+                                        key={-1}
+                                    >
+                                        {e}
                                     </p>
-                                ) : (
-                                    <p className={styles.paragraph}>
-                                        A PILHA ESTÁ VAZIA
-                                    </p>
-                                )
-                                }
+                                )) : ""
+                            }
+                        </div>
+                    </div>
 
-                                <div className={styles.infos}>
-                                    {valueListEnqueue.length > 0 ?
-                                        valueListEnqueue.map((e) => (
-                                            <p
-                                                className={styles.valueListEnqueueStyle}
-                                                key={-1}
-                                            >
-                                                {e}
-                                            </p>
-                                        )) : ""
-                                    }
-                                </div>
-                            </div>
+                    <div
+                        className={styles.divAttention}
+                        style={{ display: attentionIsFullQueue ? "" : "none" }}
+                    >
+                        {valueListEnqueue.length == valueStruct ? (
+                            <p className={styles.paragraph}>
+                                A FILA ESTÁ ESTÁ CHEIA
+                            </p>
+                        ) : (
+                            <p className={styles.paragraph}>
+                                A FILA NÃO ESTÁ CHEIA, POIS AINDA POSSUI {valueStruct - valueListEnqueue.length} ESPAÇO(S)
+                                FALTANDO.
+                            </p>
+                        )
+                        }
+                    </div>
 
-                            <div
-                                className={styles.divAttention}
-                                style={{ display: attentionIsFullQueue ? "" : "none" }}
-                            >
-                                {valueListEnqueue.length == valueStruct ? (
-                                    <p className={styles.paragraph}>
-                                        A FILA ESTÁ ESTÁ CHEIA
-                                    </p>
-                                ) : (
-                                    <p className={styles.paragraph}>
-                                        A FILA NÃO ESTÁ CHEIA, POIS AINDA POSSUI {valueStruct - valueListEnqueue.length} ESPAÇO(S)
-                                        FALTANDO.
-                                    </p>
-                                )
-                                }
-                            </div>
-
-                            <div
-                                className={styles.contentInput}
-                                style={{ display: showCodeEnqueue ? "": "none"}}
-                            >
+                    <div
+                        className={styles.contentInput}
+                        style={{ display: showCodeEnqueue ? "": "none"}}
+                    >
+                        <Row>
+                            <Col>
                                 <p className={styles.funcInput}>enfileirar{"("}f,</p>
+                            </Col>
 
+                            <Col>
                                 <input
                                     type="number"
                                     name="name"
@@ -320,120 +406,129 @@ export default function QueueInterative() {
                                         setValueEnqueue(v.target.value.slice(0, limit))
                                     }}
                                 />
+                            </Col>
 
+                            <Col>
                                 <p className={styles.funcInput}>{")"}</p>
+                            </Col>
 
-                                <button
-                                    className={styles.buttonInterative}
-                                    style={{ display: showConfirmEnqueue ? " " : "none" }}
-                                    type="submit"
-                                    onClick={confirmEnqueue}
-                                >
-                                    CONFIRMAR
-                                </button>
-                            </div>
-
-                            <div
-                                className={styles.contentInput}
-                                style={{ display: showCodeDequeue ? "" : "none" }}
+                            <Col>
+                            <button
+                                className={styles.buttonInterative}
+                                style={{ display: showConfirmEnqueue ? " " : "none" }}
+                                type="submit"
+                                onClick={confirmEnqueue}
                             >
-                                <p className={styles.funcInput}>desenfileirar(f)</p>
+                                CONFIRMAR
+                            </button>
+                            </Col>
+                        </Row>
+                    </div>
 
-                                <button
+                    <div
+                        className={styles.contentInput}
+                        style={{ display: showCodeDequeue ? "" : "none" }}
+                    >
+                        <p className={styles.funcInput}>desenfileirar(f)</p>
+
+                        <button
+                            className={styles.buttonInterative}
+                            style={{ display: showConfirmDequeue ? "" : "none" }}
+                            type="submit"
+                            onClick={confirmDequeue}
+                        >
+                            CONFIRMAR
+                        </button>
+                    </div>
+                    
+                    <Row>
+                    <div className={styles.buttonsUser}>
+                            <div className={styles.line1}>
+                                <button 
                                     className={styles.buttonInterative}
-                                    style={{ display: showConfirmDequeue ? "" : "none" }}
-                                    type="submit"
-                                    onClick={confirmDequeue}
+                                    style={{ opacity: showBtnCreateQueue ? "0.5" : "1" }}
+                                    onClick={btnEnqueue}
                                 >
-                                    CONFIRMAR
+                                    ENFILEIRAR
+                                </button>
+
+                                <button 
+                                    className={styles.buttonInterative} 
+                                    style={{ opacity: showBtnCreateQueue ? "0.5" : "1" }}
+                                    onClick={btnDequeue}
+                                >
+                                    DESENFILEIRAR
+                                </button>
+                                
+                                <button 
+                                    className={styles.buttonInterative}
+                                    style={{ opacity: showBtnCreateQueue ? "0.5" : "1" }}
+                                    onClick={btnPrintQueue}
+                                >
+                                    IMPRIMIR FILA
                                 </button>
                             </div>
 
-                            <div className={styles.buttonsUser}>
-                                    <div className={styles.line1}>
-                                        <button 
-                                            className={styles.buttonInterative}
-                                            style={{ opacity: showBtnCreateQueue ? "0.5" : "1" }}
-                                            onClick={btnEnqueue}
-                                        >
-                                            ENFILEIRAR
-                                        </button>
+                            <div className={styles.line2}>
+                                <button 
+                                    className={styles.buttonInterative} 
+                                    style={{ opacity: showBtnCreateQueue ? "0.5" : "1" }}
+                                    onClick={btnIsEmpty}
+                                >
+                                        FILA VAZIA
+                                </button>
 
-                                        <button 
-                                            className={styles.buttonInterative} 
-                                            style={{ opacity: showBtnCreateQueue ? "0.5" : "1" }}
-                                            onClick={btnDequeue}
-                                        >
-                                            DESENFILEIRAR
-                                        </button>
-                                        
-                                        <button 
-                                            className={styles.buttonInterative}
-                                            style={{ opacity: showBtnCreateQueue ? "0.5" : "1" }}
-                                        >
-                                            IMPRIMIR FILA
-                                        </button>
-                                    </div>
+                                <button 
+                                    className={styles.buttonInterative} 
+                                    style={{ opacity: showBtnCreateQueue ? "0.5" : "1" }}
+                                    onClick={btnIsFull}
+                                >
+                                    FILA CHEIA
+                                </button>
 
-                                    <div className={styles.line2}>
-                                        <button 
-                                            className={styles.buttonInterative} 
-                                            style={{ opacity: showBtnCreateQueue ? "0.5" : "1" }}
-                                            onClick={btnIsEmpty}
-                                        >
-                                                FILA VAZIA
-                                        </button>
-
-                                        <button 
-                                            className={styles.buttonInterative} 
-                                            style={{ opacity: showBtnCreateQueue ? "0.5" : "1" }}
-                                            onClick={btnIsFull}
-                                        >
-                                            FILA CHEIA
-                                        </button>
-
-                                        <button 
-                                            className={styles.buttonInterative} 
-                                            style={{ opacity: showBtnCreateQueue ? "0.5" : "1" }}
-                                            onClick={btnFreeQueue}
-                                        >
-                                            LIBERAR FILA
-                                        </button>
-                                    </div>
+                                <button 
+                                    className={styles.buttonInterative} 
+                                    style={{ opacity: showBtnCreateQueue ? "0.5" : "1" }}
+                                    onClick={btnFreeQueue}
+                                >
+                                    LIBERAR FILA
+                                </button>
                             </div>
-                        </div>
+                    </div>
+                    </Row>
+                </div>
 
-                        <div className={styles.codes}>
-                            <StructQueueCode
-                                show={showCodeStructQueue}
-                                inputValue={valueStruct}
-                                listTest={valueListEnqueue}
-                            />
+                <Row className={styles.codes}>
+                    <StructQueueCode
+                        show={showCodeStructQueue}
+                        inputValue={valueStruct}
+                        listTest={valueListEnqueue}
+                    />
 
-                            <CreateQueueCode show={showCodeCreateQueue} />
+                    <CreateQueueCode show={showCodeCreateQueue} />
 
-                            <EnqueueCode
-                                show={showCodeEnqueue}
-                                inputValue={valueEnqueue}
-                            />
+                    <EnqueueCode
+                        show={showCodeEnqueue}
+                        inputValue={valueEnqueue}
+                        showSteps={showStepsEnqueue}
+                    />
 
-                            <DequeueCode show={showCodeDequeue} />
-                            <FreeQueueCode show={showCodeFreeQueue} />
-                            <IsEmptyQueueCode show={showCodeIsEmptyQueue} />
-                            <IsFullQueueCode show={showCodeIsFullQueue} />
-                        </div>
-                    </section>
-
-                    <section className={styles.queueInterative}>
-                        <QueueMake 
-                            valueStruct={valueStruct} 
-                            listTest={valueListEnqueue}
-                            end={valueListEnqueue.length}
-                        />
-                    </section>
-                </div> 
+                    <DequeueCode show={showCodeDequeue} showSteps={showStepsDequeue} />
+                    <FreeQueueCode show={showCodeFreeQueue} />
+                    <IsEmptyQueueCode show={showCodeIsEmptyQueue} />
+                    <IsFullQueueCode show={showCodeIsFullQueue} />
+                    <PrintQueueCode show={showCodePrintQueue} />
+                </Row>
+            </Row>
+            
+            <Row className={styles.queueInterative}>
+                <QueueMake 
+                    valueStruct={valueStruct} 
+                    listTest={valueListEnqueue}
+                    end={valueListEnqueue.length}
+                />
+            </Row>
         </Container>
-
     )
 }
 

@@ -1,3 +1,51 @@
 .codes {
-    font-size: 20px;
+    font-size: 18px;
+}
+
+.method {
+    display: flex;
+    width: 100%;
+    margin-top: 30px;
+}
+
+.method pre {
+    display: flex;
+}
+
+.description2 {
+    margin-top: 30px;
+}
+
+.pAnimation1 {
+    animation: fadeInAnimation ease-out 2s;
+    animation-fill-mode: forwards;
+    color: rgb(72, 72, 72);;
+    font-weight: bold;
+    
+}
+.pAnimation2 {
+    animation: fadeInAnimation ease-out 4s;
+    animation-fill-mode: forwards;
+    color: rgb(72, 72, 72);;
+    font-weight: bold;
+    text-align: justify;
+
+}
+.pAnimation3 {
+    animation: fadeInAnimation ease-out 6s;
+    animation-fill-mode: forwards;
+    color: rgb(72, 72, 72);;
+    font-weight: bold;
+}
+
+@keyframes fadeInAnimation {
+    0% {
+        opacity: 0;
+    }
+    90% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
 }

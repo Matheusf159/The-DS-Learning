@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Layout from "../../../components/Layout";
 import Sidebar from "../../../components/Sidebar";
 import NavStructMenu from "../../../components/NavStructMenu";
-import { Container, Row, Col } from "reactstrap";
+import { Container, Row, Col, Button } from "reactstrap";
 import { faLayerGroup } from "@fortawesome/free-solid-svg-icons";
 
 import styles from "../../../styles/StackInterative.module.css";
@@ -35,6 +35,9 @@ export default function StackInterative() {
 
   const [showConfirmPush, setShowConfirmPush] = useState(true);
   const [showConfirmPop, setShowConfirmPop] = useState(true);
+
+  const [showStepPush, setShowStepPush] = useState(false)
+  const [showStepPop, setShowStepPop] = useState(false)
 
   // Texts and inputs show
   const [ShowextStep, setShowNextStep] = useState(false);
@@ -72,7 +75,7 @@ export default function StackInterative() {
   function btnPushStack() {
     if (!showBtnCreateStack) {
       setShowNextStep(false);
-
+      setShowStepPush(false)
       setShowCodePushStack(true);
       setShowCodeCreateStack(false);
       setShowCodeFreeStack(false);
@@ -137,9 +140,10 @@ export default function StackInterative() {
       setShowBtnCreateStack(true);
       setShowNextStep(false);
       setAttentionIsEmptyStack(false);
+      setShowCodeStructStack(true)
     }
 
-    if (valueStruct <= 0) {
+    if (valueStruct == 0) {
       setAttentionFreeStack(true);
     }
   }
@@ -160,6 +164,23 @@ export default function StackInterative() {
       setAttentionIsEmptyStack(true);
     }
   }
+  
+  function btnIsFull() {
+    if (!showBtnCreateStack) {
+      setShowCodeCreateStack(false);
+      setShowCodePushStack(false);
+      setShowCodePopStack(false);
+      setShowCodeFreeStack(false);
+      setShowCodeStructStack(false);
+      setShowCodeIsEmptyStack(false);
+      setShowCodeIsFullStack(true);
+      setShowCodeTopStack(false);
+      
+      setShowConfirmPop(false);
+      setShowConfirmPush(false);
+      setAttentionIsEmptyStack(false);
+    }
+  }
 
   function btnTopStack() {
     if (!showBtnCreateStack) {
@@ -174,256 +195,323 @@ export default function StackInterative() {
   }
 
   function confirmPush() {
-    if (valueListPush.length < valueStruct && valuePush != '') {
+    setShowStepPush(true)
+    setShowConfirmPush(false)
+    
+    if(showStepPush) {
+      if (valueListPush.length < valueStruct && valuePush != '') {
         setValueListPush([...valueListPush, valuePush]);
+      }
+      
+      if (valueListPush.length == valueStruct - 1) {
+        setShowConfirmPush(false);
+      }
+      
+      if (valueListPush.length == valueStruct - 1) {
+        setShowCodePushStack(false);
+        setShowCodeIsFullStack(true);
+      }
+      
+      setShowConfirmPush(true)
+    } else {
+      setTimeout(() => {
+        if (valueListPush.length < valueStruct && valuePush != '') {
+          setValueListPush([...valueListPush, valuePush]);
+        }
+        
+        if (valueListPush.length == valueStruct - 1) {
+          setShowConfirmPush(false);
+        }
+        
+        if (valueListPush.length == valueStruct - 1) {
+          setShowCodePushStack(false);
+          setShowCodeIsFullStack(true);
+        }
+        
+        setShowConfirmPush(true)
+    
+      }, 7000);
     }
-
-    if (valueListPush.length == valueStruct - 1) {
-      setShowConfirmPush(false);
-    }
-
-    if (valueListPush.length == valueStruct - 1) {
-      setShowCodePushStack(false);
-      setShowCodeIsFullStack(true);
-    }
+   
   }
 
   function confirmPop() {
-    setValueListPush(valueListPush.slice(0, -1));
-    setShowCodeIsEmptyStack(false);
-    if (valueListPush.length <= 1) setShowConfirmPop(false);
+    setShowStepPop(true)
+    setShowConfirmPop(false)
+    
+    if(showStepPop) {
+      setValueListPush(valueListPush.slice(0, -1));
+      setShowCodeIsEmptyStack(false);
+      if (valueListPush.length <= 1) {
+        setShowConfirmPop(false);
+      } else {
+        setShowConfirmPop(true)
+      }
+      
+    } else {
+        setTimeout(() => {
+          setValueListPush(valueListPush.slice(0, -1));
+          setShowCodeIsEmptyStack(false);
+          if (valueListPush.length <= 1) {
+            setShowConfirmPop(false);
+          } else {
+            setShowConfirmPop(true)
+          }
+          
+        }, 7000);
+    }
+
   }
 
   return (
-    <section className={styles.sec}>
       <Container>
-        <div className={styles.wrapper}>
-          <div >
-              <div className={styles.inputUser}>
-                <div style={{ display: showIputStruct ? "" : "none" }}>
-                  <div className={styles.displayFlex}>
-                    <h3>Escolha o tamanho da pilha de 1 a 7: </h3>
-                    
-                    <select 
-                      className={styles.inputStructStack} 
-                      value={valueStruct} 
-                      onChange={(v) => setValueStruct(v.target.value)}
-                    >
-                        <option value="0"></option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                        <option value="7">7</option>
-                    </select>
-                  </div>
-                </div>
-
-                <h3 style={{ display: ShowextStep ? "" : "none" }}>SELECIONE A PRÓXIMA OPERAÇÃO</h3>
-
-                <div 
-                  className={styles.contentInput}
-                  style={{ display: showCodePushStack ? "" : "none" }}
-                >
-                    <p className={styles.funcInput}>pilha_push{"("}p,</p>
-                    
-                    <input
-                      type="number"
-                      name="name"
-                      min="0" 
-                      max="999"
-                      maxLength="4"
-                      className={styles.inputValues}
-                      value={valuePush}
-                      onChange={(v) => {
-                        const limit = 3;
-                        setValuePush(v.target.value.slice(0, limit))
-                      }}
-                    />
-                    
-                    <p className={styles.funcInput}>{")"}</p>
-
-                    <div style={{ display: showConfirmPush ? "" : "none" }}>
-                      <button
-                        type="submit"
-                        className={styles.btnInterative}
-                        
-                        onClick={confirmPush}
-                      >
-                        CONFIRMAR
-                      </button>
-                    </div>
-                </div>
-
-                <div 
-                  className={styles.contentInput}
-                  style={{ display: showCodePopStack ? "" : "none" }}
-                >
-                    <p className={styles.funcInput}>{"pop(p, &v)"}</p>
-
-                    <div style={{ display: showConfirmPop ? "" : "none" }}>
-                      <button
-                        type="submit"
-                        className={styles.btnInterative}
-                        onClick={confirmPop}
-                      >
-                        CONFIRMAR
-                      </button>
-                    </div>
-                </div>
-
-                <div 
-                  className={styles.divAttention}
-                  style={{ display: attentionIsEmptyStack ? "" : "none" }}>
-                    {valueListPush.length > 0 ? (
-                      <p className={styles.pAttention}>
-                        A PILHA NÃO ESTÁ VAZIA, POIS POSSUI OS VALORES:{" "}
-                      </p>
-                    ) : (
-                      <p className={styles.paragraph}>
-                        A PILHA ESTÁ VAZIA!!
-                      </p>
-                    )}
-
+        <Row>
+             <Col>
+                <Row className={styles.inputUser}>
+                  <Row style={{ display: showIputStruct ? "" : "none" }}>
                     <div className={styles.displayFlex}>
-                      {valueListPush.length > 0
-                        ? valueListPush.map((e) => (
-                            <p
-                              key={-1}
-                              className={styles.valueListPushStyle}
-                            >
-                              {e}
-                            </p>
-                          ))
-                        : ""}
+                      <h3>Escolha o tamanho da pilha de 1 a 7: </h3>
+                      
+                      <select 
+                        className={styles.inputStructStack} 
+                        value={valueStruct} 
+                        onChange={(v) => setValueStruct(v.target.value)}
+                      >
+                          <option value="0"></option>
+                          <option value="1">1</option>
+                          <option value="2">2</option>
+                          <option value="3">3</option>
+                          <option value="4">4</option>
+                          <option value="5">5</option>
+                          <option value="6">6</option>
+                          <option value="7">7</option>
+                      </select>
                     </div>
-                </div>
 
-                <h3 
-                  className={styles.pAttention}
-                  style={{ display: showCodeIsFullStack ? "" : "none" }}
-                >
-                  A PILHA ESTÁ CHEIA!
-                </h3>
+                    <button
+                      className={styles.btnInterative}
+                      style={{ display: showBtnCreateStack ? "" : "none", opacity: valueStruct >= 1 ? '1' : '0.5' }}
+                      onClick={btnCreateStack}
+                    >
+                      CRIAR PILHA
+                    </button>
+                  </Row>
 
-                <div
-                  style={{
-                    display: showCodeTopStack ? "" : "none",
-                  }}
-                >
-                  <h3 className={styles.h3Style}>
-                    {`O Topo da pilha é :`}
-                  </h3>
+                  <h3 style={{ display: ShowextStep ? "" : "none" }}>SELECIONE A PRÓXIMA OPERAÇÃO</h3>
 
-                  <h3 className={styles.h3Style}>
-                    {valueListPush.slice(-1)}
-                  </h3>
-                </div>
-              </div>
+                  <div
+                    className={styles.contentInput}
+                    style={{ display: showCodePushStack ? "" : "none" }}
+                    >   
+                    <Row>
+                      <Col>
+                      <p className={styles.funcInput}>pilha_push{"("}p,</p>
+                      </Col>
 
-              <div className={styles.buttonsInterative}>
-                <div className={styles.buttonsLine}>
-                  <button
-                    className={styles.btnInterative}
-                    style={{ display: showBtnCreateStack ? "" : "none", opacity: valueStruct >= 1 ? '1' : '0.5' }}
-                    onClick={btnCreateStack}
+                      <Col>
+                        <input
+                          type="number"
+                          name="name"
+                          min="0" 
+                          max="999"
+                          maxLength="4"
+                          className={styles.inputValues}
+                          value={valuePush}
+                          onChange={(v) => {
+                            const limit = 3;
+                            setValuePush(v.target.value.slice(0, limit))
+                          }}
+                        />
+                      </Col>
+                      
+                      <Col>
+                        <p className={styles.funcInput}>{")"}</p>
+                      </Col>
+                      
+                      <Col>
+                        <div style={{ display: showConfirmPush ? "" : "none" }}>
+                          <button
+                            type="submit"
+                            className={styles.btnInterativeUser}
+                            
+                            onClick={confirmPush}
+                            >
+                            CONFIRMAR
+                          </button>
+                        </div>
+                      </Col>
+                    </Row>
+                  </div>
+
+                  <div 
+                    className={styles.contentInput}
+                    style={{ display: showCodePopStack ? "" : "none" }}
                   >
-                    CRIAR PILHA
-                  </button>
+                      <p className={styles.funcInput}>{"pop(p, &v)"}</p>
 
-                  <button
-                    className={styles.btnInterative}
-                    style={{ opacity: showBtnCreateStack ? "0.5" : "1" }}
-                    onClick={btnPushStack}
-                  >
-                    EMPILHAR
-                  </button>
+                      <div style={{ display: showConfirmPop ? "" : "none" }}>
+                        <button
+                          type="submit"
+                          className={styles.btnInterativeUser}
+                          onClick={confirmPop}
+                        >
+                          CONFIRMAR
+                        </button>
+                      </div>
+                  </div>
 
-                  <button
-                    className={styles.btnInterative}
-                    style={{ opacity: showBtnCreateStack ? "0.5" : "1" }}
-                    onClick={btnPopStack}
+                  <div 
+                    className={styles.divAttention}
+                    style={{ display: attentionIsEmptyStack ? "" : "none" }}
                   >
-                    DESEMPILHAR
-                  </button>
-                </div>
+                      {valueListPush.length > 0 ? (
+                        <p className={styles.pAttention}>
+                          A PILHA NÃO ESTÁ VAZIA, POIS POSSUI OS VALORES:{" "}
+                        </p>
+                      ) : (
+                        <p className={styles.paragraph}>
+                          A PILHA ESTÁ VAZIA!!
+                        </p>
+                      )}
 
-                <div className={styles.buttonsLine}>
-                  <button
-                    className={styles.btnInterative}
-                    style={{ opacity: showBtnCreateStack ? "0.5" : "1" }}
-                    onClick={btnTopStack}
-                  >
-                    TOPO
-                  </button>
+                      <div className={styles.displayFlex}>
+                        {valueListPush.length > 0
+                          ? valueListPush.map((e) => (
+                              <p
+                                key={-1}
+                                className={styles.valueListPushStyle}
+                              >
+                                {e}
+                              </p>
+                            ))
+                          : ""}
+                      </div>
+                  </div>
 
-                  <button 
-                    className={styles.btnInterative}
-                    style={{ opacity: showBtnCreateStack ? "0.5" : "1" }}
-                    onClick={btnIsEmpty}
+                  <div 
+                    className={styles.divAttention}
+                    style={{ display: showCodeIsFullStack ? "" : "none" }}
                   >
-                    ESTÁ VAZIA
-                  </button>
+                    {
+                      valueListPush.length == valueStruct
+                      ? <p className={styles.pAttention}>A PILHA ESTÁ CHEIA!!</p>
+                      : 
+                        <p className={styles.pAttention}>
+                          A PILHA NÃO ESTÁ CHEIA POIS EXISTEM {`${valueStruct-valueListPush.length}`} ESPAÇO(S) LIVRES
+                        </p>
+                    }
+                  </div>
+
+                  <div
+                    style={{
+                      display: showCodeTopStack ? "" : "none",
+                    }}
+                  >
+                    <h3 className={styles.h3Style}>
+                      {`O Topo da pilha é :`}
+                    </h3>
+
+                    <h3 className={styles.h3Style}>
+                      {valueListPush.slice(-1)}
+                    </h3>
+                  </div>
+                </Row>
+                
+                <Row className={styles.buttonsInterative}>
+                  <Row className={styles.buttonsLine}>
+                    <button
+                      className={styles.btnInterative}
+                      style={{ opacity: showBtnCreateStack ? "0.5" : "1" }}
+                      onClick={btnPushStack}
+                    >
+                      EMPILHAR
+                    </button>
+
+                    <button
+                      className={styles.btnInterative}
+                      style={{ opacity: showBtnCreateStack ? "0.5" : "1" }}
+                      onClick={btnPopStack}
+                    >
+                      DESEMPILHAR
+                    </button>
+
+                    <button
+                      className={styles.btnInterative}
+                      onClick={btnFreeStack}
+                      style={{ opacity: showBtnCreateStack ? "0.5" : "1" }}
+                    >
+                      LIBERAR
+                    </button>
+                  </Row>
                   
-                  <button
-                    className={styles.btnInterative}
-                    onClick={btnFreeStack}
-                    style={{ opacity: showBtnCreateStack ? "0.5" : "1" }}
-                  >
-                    LIBERAR
-                  </button>
-                </div>
-              </div>
+                  <Row className={styles.buttonsLine}>
+                    <button
+                      className={styles.btnInterative}
+                      style={{ opacity: showBtnCreateStack ? "0.5" : "1" }}
+                      onClick={btnTopStack}
+                    >
+                      TOPO
+                    </button>
 
-            <div className={styles.rightLeftdown}>
-                <StructStackCode
-                  show={showCodeStructStack}
-                  inputValue={valueStruct}
+                    <button 
+                      className={styles.btnInterative}
+                      style={{ opacity: showBtnCreateStack ? "0.5" : "1" }}
+                      onClick={btnIsEmpty}
+                    >
+                      ESTÁ VAZIA
+                    </button>
+
+                    <button 
+                      className={styles.btnInterative}
+                      style={{ opacity: showBtnCreateStack ? "0.5" : "1" }}
+                      onClick={btnIsFull}
+                    >
+                      ESTÁ CHEIA
+                    </button>
+                  </Row>
+                </Row>
+
+              <Row className={styles.rightLeftdowns}>
+                  <StructStackCode
+                    show={showCodeStructStack}
+                    inputValue={valueStruct}
+                    listTest={valueListPush}
+                  />
+
+                  <CreateStackCode show={showCodeCreateStack} />
+
+                  <PushStackCode
+                    show={showCodePushStack}
+                    inputValue={valuePush}
+                    showSteps={showStepPush}
+                  />
+
+                  <PopStackCode 
+                    show={showCodePopStack} 
+                    showSteps={showStepPop}
+                  />
+                  
+                  <FreeStackCode show={showCodeFreeStack} />
+                  <IsEmptyStackCode show={showCodeIsEmptyStack} />
+
+                  <IsFullStackCode
+                    show={showCodeIsFullStack}
+                    fullValue={valueStruct}
+                  />
+
+                  <TopStackCode show={showCodeTopStack} fullValue={valueStruct} />
+              </Row>
+            </Col>
+            
+            <Col lg={2} style={{display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
+                <StackMake
+                  valueStruct={valueStruct}
                   listTest={valueListPush}
-                />
-
-                <CreateStackCode show={showCodeCreateStack} />
-
-                <PushStackCode
-                  show={showCodePushStack}
-                  inputValue={valuePush}
-                />
-
-                <PopStackCode show={showCodePopStack} />
-                <FreeStackCode show={showCodeFreeStack} />
-                <IsEmptyStackCode show={showCodeIsEmptyStack} />
-
-                <IsFullStackCode
-                  show={showCodeIsFullStack}
-                  fullValue={valueStruct}
-                />
-
-                <TopStackCode show={showCodeTopStack} fullValue={valueStruct} />
-            </div>
-          </div>
-
-          <div className={styles.rightRight}>
-            <p 
-            style={{ display: attentionFreeStack ? "" : "none" }}
-            className={styles.attention}
-            >
-              NÃO HÁ PILHA PARA LIBERAR, SELECIONE O TAMANHO <br /> PARA
-              ALOCAÇÃO DE MEMÓRIA DA PILHA!
-            </p> 
-
-            <div className={styles.stackMakeStyle}>
-              <StackMake
-                valueStruct={valueStruct}
-                listTest={valueListPush}
-                topValue={valueListPush.length}
-                />
-            </div>
-          </div>
-        </div>
+                  topValue={valueListPush.length}
+                  />
+            </Col>
+        </Row>
       </Container>
-    </section>
   );
 }
 
@@ -435,9 +523,9 @@ StackInterative.getLayout = function getLayout(page) {
         <NavStructMenu 
           structName="PILHA" 
           iconName={faLayerGroup} 
-          linkStruct="/stack"
-          linkVisualization="/stack/visualization"
-          linkExercicio="/stack/exercices"
+          linkStruct="stack"
+          linkVisualization="stack/visualization"
+          linkExercicio="stack/exercices"
           methods={methods}
         />
         {page}

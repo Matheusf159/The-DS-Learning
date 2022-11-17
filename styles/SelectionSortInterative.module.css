@@ -1,31 +1,37 @@
-.container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 50px;
+.barSorts {
+    margin-top: 20px;
 }
 
-.left {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: 50%;
-    height: 300px;
+.content {
+    margin-top: 15px;
 }
+
+.inputStructQueue {
+    width: 150px;
+    height: 30px;
+    margin-top: 4px;
+    margin-left: 10px;
+}
+
+
 
 .inputValues{
-    margin-top: 10px;
-    margin-left: 10px;
     font-weight: bold;
     text-align: center;
     font-size: 25px;
-    width: 55px;
+    width: 100px;
     height:30px;
 }
 
+.rowBars {
+    display: flex;
+    flex-direction: row;
+}
 
 .selectLength {
     display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .buttons {
@@ -33,14 +39,6 @@
     align-items: center;
     justify-content: center;
     margin-top: 20px;
-}
-
-.right {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 50%;
-    height: 300px;
 }
 
 .arrayBar {
@@ -51,12 +49,13 @@
     width: 10px;
     display: inline-block;
     margin: 0 1px;
+    margin: 0px 10px 0px 10px;
 }
 
-/* .rotate {
-    transform: rotate(180deg);
-    transform: scaleY(-1);
-} */
+.bar {
+    display: flex;
+    flex-direction: column-reverse;
+}
 
 .btnInterative {
     margin-left: 10px;

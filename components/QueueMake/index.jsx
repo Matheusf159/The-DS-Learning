@@ -21,7 +21,7 @@ export default function QueueMake(props) {
         }
 
         if(i != 1 && i != props.end) {
-            listQueuePart.push(<QueuePart valueEnqueue={listValueEnqueue[i-1]}/>)
+            listQueuePart.push(<QueuePart valueEnqueue={listValueEnqueue[i-1]} startEnd=" "/>)
         }
                
     }

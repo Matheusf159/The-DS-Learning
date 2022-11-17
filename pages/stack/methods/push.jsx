@@ -1,5 +1,4 @@
 import React from "react";
-import { useRouter } from "next/router";
 import Layout from "../../../components/Layout";
 import Sidebar from "../../../components/Sidebar";
 import NavStructMenu from "../../../components/NavStructMenu";
@@ -9,10 +8,7 @@ import styles from "../../../styles/Pages.module.css";
 import { methods } from "../../../components/stacksComponents/methods";
 import { Container, Row, Col } from "reactstrap";
 
-export default function Push() {
-  const router = useRouter();
-  const func = router.query.createStack;
-
+export function Push() {
   const code = `
 1.  int pilha_push(Pilha *p, float v) {
 2.      if(!estarCheia(p)) {
@@ -59,8 +55,8 @@ export default function Push() {
                     Linha 3 Irá ser inserido o elemento na posição indicada pelo topo <br />
                     e logo em seguida o valor do topo será incrementado.
                   </p>
-              </div>
-            <div>
+            </div>
+          <div>
               <PushStackAnimation />
             </div>
           </div>
@@ -72,21 +68,21 @@ export default function Push() {
 }
 
 
-Push.getLayout = function getLayout(page) {
-  return (
-    <Layout pageTitle="DS-Learning | Pilha">
-      <Sidebar />
-      <section>
-        <NavStructMenu
-          structName="PILHA"
-          iconName={faLayerGroup}
-          linkStruct="/stack"
-          linkVisualization="/stack/visualization"
-          linkExercicio="/stack/exercices"
-          methods={methods}
-        />
-        {page}
-      </section>
-    </Layout>
-  );
-};
+// Push.getLayout = function getLayout(page) {
+//   return (
+//     <Layout pageTitle="DS-Learning | Pilha">
+//       <Sidebar />
+//       <section>
+//         <NavStructMenu
+//           structName="PILHA"
+//           iconName={faLayerGroup}
+//           linkStruct="/stack"
+//           linkVisualization="/stack/visualization"
+//           linkExercicio="/stack/exercices"
+//           methods={methods}
+//         />
+//         {page}
+//       </section>
+//     </Layout>
+//   );
+// };

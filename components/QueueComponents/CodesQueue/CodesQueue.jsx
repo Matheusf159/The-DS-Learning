@@ -1,4 +1,5 @@
 import React from 'react'
+import { Container, Row, Col } from "reactstrap";
 
 import styles from './codesQueue.module.css'
 
@@ -11,13 +12,29 @@ export function StructQueueCode(props) {
 5.  }Fila;`
 
     return(
-        <div style={{ display: props.show ? "" : "none" }}>
-            <pre>
-                <code className={styles.codes}>
-                    {code}
-                </code>
-            </pre>
-        </div>
+        <Container 
+            className={styles.method}
+            style={{ display: props.show ? "" : "none" }}
+        >
+            <Row>
+                <Col>
+                    <pre>
+                        <code className={styles.codes}>
+                            {code}
+                        </code>
+                    </pre>
+                </Col>
+
+                <Col className={styles.description}>
+                    <p className={styles.pAnimation1}>
+                        A struct que define a fila é formada por 3 características: <br />
+                        o <i>vetor</i> responsável por definir a quantidade de elementos que a fila irá ter; <br />
+                        o <i>início</i> responsável por informar o começo da fila; <br />
+                        e o <i>fim</i>, responsável por informar o término da fila.
+                    </p>
+                </Col>
+            </Row>
+        </Container>
     )
 
 }
@@ -33,13 +50,32 @@ export function CreateQueueCode(props) {
 6.  }
 `
     return(
-        <div style={{ display: props.show ? "" : "none" }}>
-            <pre>
-                <code className={styles.codes}>
-                    {code}
-                </code>
-            </pre>
-        </div>
+        <Container 
+            className={styles.method} 
+            style={{ display: props.show ? "" : "none" }}
+        >
+            <Row>
+                <Col>
+                    <pre>
+                        <code className={styles.codes}>
+                            {code}
+                        </code>
+                    </pre>
+                </Col>
+
+                <Col className={styles.description2}>
+                    <p className={styles.pAnimation1}>
+                        Linha 2 aloca dinaminacmente o estrutura na memória;
+                    </p>
+                    <p className={styles.pAnimation2}>
+                        Linha 3 inicializa o início da fila com 0;
+                    </p>
+                    <p className={styles.pAnimation3}>
+                        Linha 4 inicializa o fim da fila com 0.
+                    </p>
+                </Col>
+            </Row>
+        </Container>
     )
 
 }
@@ -57,13 +93,36 @@ export function DequeueCode(props) {
 8.  }
 `
     return(
-        <div style={{ display: props.show ? "" : "none" }}>
-            <pre>
-                <code className={styles.codes}>
-                    {code}
-                </code>
-            </pre>
-        </div>
+        <Container 
+            className={styles.method} 
+            style={{ display: props.show ? "" : "none" }}
+        >
+            <Row>
+                <Col>
+                    <pre>
+                        <code className={styles.codes}>
+                            {code}
+                        </code>
+                    </pre>
+                </Col>
+
+                <Col 
+                    style={{display: props.showSteps ? "" : "none"}} 
+                    className={styles.description}
+                >
+                    <p className={styles.pAnimation1}>
+                        Linha 2 verifica se a fila não está vazia;
+                    </p>
+                    <p className={styles.pAnimation2}>
+                        Linha 3 caso não esteja retorna a retirada do elemento da fila
+                        e logo em seguida é incrementado o inicio;
+                    </p>
+                    <p className={styles.pAnimation3}>
+                        Linha 5 caso contrário, a fila estará vazia e retornará zero.
+                    </p>
+                </Col>
+            </Row>
+        </Container>
     )
 
 }
@@ -78,13 +137,35 @@ export function EnqueueCode(props) {
 5.  }
 `
     return(
-        <div style={{ display: props.show ? "" : "none" }}>
-            <pre>
-                <code className={styles.codes}>
-                    {code}
-                </code>
-            </pre>
-        </div>
+        <Container 
+            className={styles.method} 
+            style={{ display: props.show ? "" : "none" }}
+        >
+            <Row>
+                <Col>
+                    <pre>
+                        <code className={styles.codes}>
+                            {code}
+                        </code>
+                    </pre>
+                </Col>
+
+                <Col 
+                    style={{display: props.showSteps ? "" : "none"}} 
+                    className={styles.description2}
+                    >
+                    <p className={styles.pAnimation1}>
+                        Linha 2 verifica se a fila não está cheia;
+                    </p>
+                    <p className={styles.pAnimation2}>
+                        Linha 3 o valor é enfileirado e ocorre a incrementação do fim;
+                    </p>
+                    <p className={styles.pAnimation3}>
+                        Linha 4 a fila está cheia e não é possível enfileirar.
+                    </p>
+                </Col>
+            </Row>
+        </Container>
     )
 
 }
@@ -97,13 +178,29 @@ export function FreeQueueCode(props) {
 3.  }
 `
     return(
-        <div style={{ display: props.show ? "" : "none" }}>
-            <pre>
-                <code className={styles.codes}>
-                    {code}
-                </code>
-            </pre>
-        </div>
+        <Container 
+            className={styles.method} 
+            style={{ display: props.show ? "" : "none" }}
+        >
+            <Row>
+                <Col>
+                    <pre>
+                        <code className={styles.codes}>
+                            {code}
+                        </code>
+                    </pre>
+                </Col>
+
+                <Col className={styles.description}>
+                    <p className={styles.pAnimation1}>
+                        Linha 1 a função receberá por Parâmetro o ponteiro do tipo Fila;
+                    </p>
+                    <p className={styles.pAnimation2}>
+                        Linha 2 a função free será responsável por liberar a memória ocupada.
+                    </p>
+                </Col>
+            </Row>
+        </Container>
     )
 
 }
@@ -116,13 +213,30 @@ export function IsEmptyQueueCode(props) {
 3.  }
 `
     return(
-        <div style={{ display: props.show ? "" : "none" }}>
-            <pre>
-                <code className={styles.codes}>
-                    {code}
-                </code>
-            </pre>
-        </div>
+        <Container 
+            className={styles.method} 
+            style={{ display: props.show ? "" : "none" }}
+        >
+            <Row>
+                <Col>
+                    <pre>
+                        <code className={styles.codes}>
+                            {code}
+                        </code>
+                    </pre>
+                </Col>
+
+                <Col className={styles.description2}>
+                    <p className={styles.pAnimation1}>
+                        Linha 1 a função receberá por Parâmetro o ponteiro do tipo Fila;
+                    </p>
+                    <p className={styles.pAnimation2}>
+                        Linha 2 irá retornar verdadeiro caso o fim seja igual a zero ou
+                        false caso a condição não seja verdadeira.
+                    </p>
+                </Col>
+            </Row>
+        </Container>
     )
 
 }
@@ -135,13 +249,30 @@ export function IsFullQueueCode(props) {
 3.  }
 `
     return(
-        <div style={{ display: props.show ? "" : "none" }}>
-            <pre>
-                <code className={styles.codes}>
-                    {code}
-                </code>
-            </pre>
-        </div>
+        <Container 
+            className={styles.method} 
+            style={{ display: props.show ? "" : "none" }}
+        >
+            <Row>
+                <Col>
+                    <pre>
+                        <code className={styles.codes}>
+                            {code}
+                        </code>
+                    </pre>
+                </Col>
+
+                <Col className={styles.description2}>
+                    <p className={styles.pAnimation1}>
+                        Linha 1 a função receberá por Parâmetro o ponteiro do tipo Fila;
+                    </p>
+                    <p className={styles.pAnimation2}>
+                        Linha 2 irá retornar verdadeiro caso o fim seja igual ao máximo ou
+                        false caso a condição não seja verdadeira.
+                    </p>
+                </Col>
+            </Row>
+        </Container>
     )
 
 }
@@ -155,13 +286,33 @@ export function PrintQueueCode(props) {
 4.  }
 `
     return(
-        <div style={{ display: props.show ? "" : "none" }}>
-            <pre>
-                <code className={styles.codes}>
-                    {code}
-                </code>
-            </pre>
-        </div>
+        <Container 
+            className={styles.method}
+            style={{ display: props.show ? "" : "none" }}
+        >
+            <Row>
+                <Col>
+                    <pre>
+                        <code className={styles.codes}>
+                            {code}
+                        </code>
+                    </pre>
+                </Col>
+
+                <Col className={styles.description2}>
+                    <p className={styles.pAnimation1}>
+                        Linha 1 a função receberá por Parâmetro o ponteiro do tipo Fila;
+                    </p>
+                    <p className={styles.pAnimation2}>
+                        Linha 2 o laço de repetição for irá percorrer a fila desde o início até
+                        seu fim;
+                    </p>
+                    <p className={styles.pAnimation3}>
+                        Linha 3 irá printar em tela cada elemento da fila em ordem.
+                    </p>
+                </Col>
+            </Row>
+        </Container>
     )
 
 }
