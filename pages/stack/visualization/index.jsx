@@ -17,7 +17,7 @@ IsEmptyStackCode,
 IsFullStackCode, 
 TopStackCode} from '../../../components/stacksComponents/CodesStack/CodesStack'
 
-import { methods } from "../../../components/stacksComponents/methods";
+import { structures } from '../../../components/structures'
 import StackMake from "../../../components/StackMake";
 
 export default function StackInterative() {
@@ -266,7 +266,7 @@ export default function StackInterative() {
   return (
       <Container>
         <Row>
-             <Col>
+             <Col >
                 <Row className={styles.inputUser}>
                   <Row style={{ display: showIputStruct ? "" : "none" }}>
                     <div className={styles.displayFlex}>
@@ -526,7 +526,7 @@ StackInterative.getLayout = function getLayout(page) {
           linkStruct="stack"
           linkVisualization="stack/visualization"
           linkExercicio="stack/exercices"
-          methods={methods}
+          methods={structures}
         />
         {page}
       </section>

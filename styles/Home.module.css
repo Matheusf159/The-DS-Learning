@@ -1,4 +1,4 @@
-.container {
+/* .container {
   display: flex;
   margin: 0;
   padding: 0;
@@ -31,4 +31,14 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+} */
+
+.navActive {
+  display: none;
+}
+
+@media screen and (max-width: 600px) {
+  .navActive {
+    display: block;
+  }
 }

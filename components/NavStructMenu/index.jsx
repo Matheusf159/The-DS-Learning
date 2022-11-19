@@ -48,7 +48,7 @@ export default function NavStructMenu({
 
       <Col lg={6} className={styles.headerItens}>
         <ButtonGroup>
-          {/* <ButtonDropdown isOpen={dropdownOpen} toggle={toggle}>
+          <ButtonDropdown className={styles.active} isOpen={dropdownOpen} toggle={toggle}>
             <DropdownToggle caret>Métodos</DropdownToggle>
             <DropdownMenu>
               {methodsLocal?.map((method, index) => (
@@ -59,7 +59,7 @@ export default function NavStructMenu({
                 </DropdownItem>
               ))}
             </DropdownMenu>
-          </ButtonDropdown> */}
+          </ButtonDropdown>
 
           <Button>
             {" "}

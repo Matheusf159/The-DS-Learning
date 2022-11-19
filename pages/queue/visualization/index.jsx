@@ -3,7 +3,7 @@ import Layout from "../../../components/Layout";
 import NavStructMenu from "../../../components/NavStructMenu";
 import Sidebar from "../../../components/Sidebar";
 import { faLinesLeaning } from "@fortawesome/free-solid-svg-icons";
-import { methods } from "../../../components/QueueComponents/methods";
+import { structures } from '../../../components/structures'
 import styles from '../../../styles/QueueInterative.module.css'
 import { Container, Row, Col } from "reactstrap";
 import QueueMake from '../../../components/QueueMake'
@@ -545,7 +545,7 @@ QueueInterative.getLayout = function getLayout(page) {
                     linkStruct="/queue"
                     linkVisualization="/queue/visualization"
                     linkExercicio="/queue/exercices"
-                    methods={methods}
+                    methods={structures}
                 />
                 {page}
             </section>

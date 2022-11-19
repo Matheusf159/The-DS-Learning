@@ -26,3 +26,13 @@
 .alink:hover {
   color: #fff;
 }
+
+.active{
+  display: none;
+}
+
+@media screen and (max-width: 600px) {
+  .active {
+    display: block;
+  }
+}

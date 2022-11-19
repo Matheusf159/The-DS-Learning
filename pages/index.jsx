@@ -3,11 +3,26 @@ import Sidebar from "../components/Sidebar";
 import Image from "next/image";
 import landingImg from "../public/imgs/landing.jpg";
 import { Container, Row, Col } from "reactstrap";
-
+import NavStructMenu from "../components/NavStructMenu";
+import { faBars } from "@fortawesome/free-solid-svg-icons";
+import styles from '../styles/Home.module.css'
+import { structures } from '../components/structures'
 
 export default function Home() {
   return (
     <section className="section ">
+      
+      <div className={styles.navActive}>
+        <NavStructMenu 
+          // structName="PILHA" 
+          // iconName={faBars} 
+          // linkStruct="stack"
+          // linkVisualization="stack/visualization"
+          // linkExercicio="stack/exercices"
+          methods={structures}
+        />
+      </div>
+
       <Container>
         <Row className="align-items-center">
           <Col lg={6}>

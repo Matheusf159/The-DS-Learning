@@ -6,7 +6,7 @@ import { faSignal } from "@fortawesome/free-solid-svg-icons"
 import { selectionSortMain } from '../../../components/SelectionSortMake'
 import { Container, Col, Row } from "reactstrap";
 import { SelectionSortCode } from '../../../components/SelectionSortComponents/SelectionSortCodes/CodesSelectionSort'
-
+import { structures } from '../../../components/structures'
 import styles from '../../../styles/SelectionSortInterative.module.css'
 export default function SelectionSortInterative() {
 
@@ -196,6 +196,7 @@ SelectionSortInterative.getLayout = function getLayout(page) {
                    linkStruct="/selectionsort"
                    linkVisualization="/selectionsort/visualization"
                    linkExercicio="/selectionsort/exercices"
+                   methods={structures}
                />
                {page}
            </section>

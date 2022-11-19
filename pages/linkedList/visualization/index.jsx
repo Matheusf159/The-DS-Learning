@@ -3,7 +3,7 @@ import Layout from "../../../components/Layout";
 import NavStructMenu from "../../../components/NavStructMenu";
 import Sidebar from "../../../components/Sidebar";
 import { faEllipsis } from "@fortawesome/free-solid-svg-icons";
-import { methods } from "../../../components/LinkedListComponents/methods";
+import { structures } from '../../../components/structures'
 import styles from '../../../styles/LinkedListInterative.module.css'
 import { Container, Col, Row } from "reactstrap";
 import LinkedListMake from '../../../components/LinkedListMake'
@@ -568,7 +568,7 @@ LinkedListInterative.getLayout = function getLayout(page) {
                     linkStruct="/linkedList"
                     linkVisualization="/linkedList/visualization"
                     linkExercicio="/linkedList/exercices"
-                    methods={methods}
+                    methods={structures}
                 />
                 {page}
             </section>
