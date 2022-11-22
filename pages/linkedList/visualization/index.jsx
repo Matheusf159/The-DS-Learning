@@ -337,7 +337,7 @@ export default function LinkedListInterative() {
                     className={styles.contentInput}
                     style={{ display: showCodeInsertEnd ? "": "none"}}
                 >
-                    <p className={styles.funcInput}>inserir_fim{"("}l, </p>
+                    <p className={styles.funcInput}>insert_end{"("}l, </p>
 
                     <Col>
                         <input
@@ -372,7 +372,7 @@ export default function LinkedListInterative() {
                     className={styles.contentInput}
                     style={{ display: showCodeInsertStart ? "": "none"}}
                 >
-                    <p className={styles.funcInput}>inserir_inicio{"("}l,</p>
+                    <p className={styles.funcInput}>insert_begin{"("}l,</p>
 
                     <Col>
                         <input
@@ -441,7 +441,7 @@ export default function LinkedListInterative() {
                     className={styles.contentInput}
                     style={{ display: showCodeRemoveStart ? "" : "none" }}
                 >
-                    <p className={styles.funcInput}>remover_inicio(f)</p>
+                    <p className={styles.funcInput}>remove_begin(f)</p>
 
                     <button
                         className={styles.buttonInterative}
@@ -457,7 +457,7 @@ export default function LinkedListInterative() {
                     className={styles.contentInput}
                     style={{ display: showCodeRemoveEnd ? "" : "none" }}
                 >
-                    <p className={styles.funcInput}>remover_fim(f)</p>
+                    <p className={styles.funcInput}>remove_end(f)</p>
 
                     <button
                         className={styles.buttonInterative}
@@ -521,24 +521,22 @@ export default function LinkedListInterative() {
             </Row>
             
             <Row className={styles.codes}>
-                <div style={{display: 'flex', flexDirection: 'row'}}>
-                    <StructLinkedListCode show={showCodeStructLinkedList} />
-                    <ListLinkedListCode show={showCodeStructLinkedList} />
+                <StructLinkedListCode show={showCodeStructLinkedList} />
+                <ListLinkedListCode show={showCodeStructLinkedList} />
 
-                    <CreateLinkedListCode show={showCodeCreateLinkedList} />
+                <CreateLinkedListCode show={showCodeCreateLinkedList} />
 
-                    <InsertBeginCode show={showCodeInsertStart} showSteps={showStepsInsertBegin} />
-                    <InsertEndCode show={showCodeInsertEnd} showSteps={showStepsInsertEnd} />
+                <InsertBeginCode show={showCodeInsertStart} showSteps={showStepsInsertBegin} />
+                <InsertEndCode show={showCodeInsertEnd} showSteps={showStepsInsertEnd} />
 
-                    <RemoveBeginCode show={showCodeRemoveStart} showSteps={showStepsRemoveBegin} />
-                    <RemoveEndCode show={showCodeRemoveEnd} showSteps={showStepsRemoveEnd} />
+                <RemoveBeginCode show={showCodeRemoveStart} showSteps={showStepsRemoveBegin} />
+                <RemoveEndCode show={showCodeRemoveEnd} showSteps={showStepsRemoveEnd} />
 
-                    <IsEmptyCode show={showCodeIsEmptyList} showSteps={showStepsIsEmpty} />
-                    <ListPrintCode show={showCodePrintList} /> 
+                <IsEmptyCode show={showCodeIsEmptyList} showSteps={showStepsIsEmpty} />
+                <ListPrintCode show={showCodePrintList} /> 
 
-                    <SearchNodeCode show={showCodeSeacrh} />
-                    <FreeLinkedListCode show={showCodeFreeLinkedList} />
-                </div>
+                <SearchNodeCode show={showCodeSeacrh} />
+                <FreeLinkedListCode show={showCodeFreeLinkedList} />
             </Row>
 
             <Row className={styles.queueInterative}>

@@ -19,6 +19,7 @@
     font-weight: bold;
     text-align: center;
     font-size: 25px;
+    margin-left: 10px;
     width: 100px;
     height:30px;
 }
@@ -67,4 +68,18 @@
     color: white;
     font-weight: bold;
 
+}
+
+@media screen and (max-width: 600px) {
+    .content {
+        flex-direction: column;
+    }
+
+    .btnInterative {
+        margin-top: 10px;
+    }
+
+    .barSorts {
+        overflow: auto;
+    }
 }

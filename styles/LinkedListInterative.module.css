@@ -133,3 +133,16 @@
     justify-content: center;
     margin-top: 50px;
 }
+
+@media screen and (max-width: 600px) {
+    .queueInterative {
+      overflow: auto;
+    }
+    .codes {
+        overflow: auto;
+    }
+
+    .funcInput {
+        font-size: 22px;
+    }
+  }

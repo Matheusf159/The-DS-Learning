@@ -112,6 +112,7 @@ export default function QueueInterative() {
             setShowCodeCreateQueue(false)
             setShowStepsEnqueue(false)
 
+            setAttentionIsFullQueue(false)
             setAttentionIsEmptyQueue(false)
             setShowNextStep(false)
             
@@ -318,7 +319,7 @@ export default function QueueInterative() {
                     </div>
                     
                     <button 
-                        className={styles.buttonInterative}
+                        className={styles.buttonInterative1}
                         style={{ display: showBtnCreateQueue ? " " : "none", opacity: valueStruct >=1 ? '1' : '0.5' }}
                         onClick={btnCreateQueue} 
                     >
@@ -342,11 +343,11 @@ export default function QueueInterative() {
                         style={{ display: attentionIsEmptyQueue ? "" : "none" }}
                     >
                         {valueListEnqueue.length > 0 ? (
-                            <p className={styles.paragraph}>
+                            <p style={{color: 'red'}} className={styles.paragraph}>
                                 A FILA NÃO ESTÁ VAZIA, POIS POSSUI OS VALORES: {" "}
                             </p>
                         ) : (
-                            <p className={styles.paragraph}>
+                            <p style={{color: 'green'}} className={styles.paragraph}>
                                 A PILHA ESTÁ VAZIA
                             </p>
                         )
@@ -356,6 +357,7 @@ export default function QueueInterative() {
                             {valueListEnqueue.length > 0 ?
                                 valueListEnqueue.map((e) => (
                                     <p
+                                        style={{color: 'red'}}
                                         className={styles.valueListEnqueueStyle}
                                         key={-1}
                                     >
@@ -371,11 +373,11 @@ export default function QueueInterative() {
                         style={{ display: attentionIsFullQueue ? "" : "none" }}
                     >
                         {valueListEnqueue.length == valueStruct ? (
-                            <p className={styles.paragraph}>
+                            <p style={{color: 'green'}} className={styles.paragraph}>
                                 A FILA ESTÁ ESTÁ CHEIA
                             </p>
                         ) : (
-                            <p className={styles.paragraph}>
+                            <p style={{color: 'red'}} className={styles.paragraph}>
                                 A FILA NÃO ESTÁ CHEIA, POIS AINDA POSSUI {valueStruct - valueListEnqueue.length} ESPAÇO(S)
                                 FALTANDO.
                             </p>
@@ -413,33 +415,37 @@ export default function QueueInterative() {
                             </Col>
 
                             <Col>
-                            <button
-                                className={styles.buttonInterative}
-                                style={{ display: showConfirmEnqueue ? " " : "none" }}
-                                type="submit"
-                                onClick={confirmEnqueue}
-                            >
-                                CONFIRMAR
-                            </button>
+                                <button
+                                    className={styles.buttonInterative}
+                                    style={{ display: showConfirmEnqueue ? " " : "none" }}
+                                    type="submit"
+                                    onClick={confirmEnqueue}
+                                >
+                                    CONFIRMAR
+                                </button>
                             </Col>
                         </Row>
                     </div>
 
-                    <div
+                    <Row
                         className={styles.contentInput}
                         style={{ display: showCodeDequeue ? "" : "none" }}
-                    >
-                        <p className={styles.funcInput}>desenfileirar(f)</p>
-
-                        <button
-                            className={styles.buttonInterative}
-                            style={{ display: showConfirmDequeue ? "" : "none" }}
-                            type="submit"
-                            onClick={confirmDequeue}
-                        >
-                            CONFIRMAR
-                        </button>
-                    </div>
+                    >   
+                        <Col>
+                            <p className={styles.funcInput}>desenfileirar(f)</p>
+                        </Col>
+                        
+                        <Col>
+                            <button
+                                className={styles.buttonInterative}
+                                style={{ display: showConfirmDequeue ? "" : "none" }}
+                                type="submit"
+                                onClick={confirmDequeue}
+                            >
+                                CONFIRMAR
+                            </button>
+                        </Col>
+                    </Row>
                     
                     <Row>
                     <div className={styles.buttonsUser}>
@@ -521,7 +527,7 @@ export default function QueueInterative() {
                 </Row>
             </Row>
             
-            <Row className={styles.queueInterative}>
+            <Row style={{background: 'red'}} className={styles.queueInterative}>
                 <QueueMake 
                     valueStruct={valueStruct} 
                     listTest={valueListEnqueue}

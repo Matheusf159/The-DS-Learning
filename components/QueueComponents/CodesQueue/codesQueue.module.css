@@ -49,3 +49,23 @@
         opacity: 1;
     }
 }
+
+@media screen and (max-width: 600px) {
+    .codes {
+        font-size: 14px;
+    }
+
+    .pAnimation1, .pAnimation3, .pAnimation2 {
+        font-size: 14px;
+    }
+    
+    /* .method {
+        display: flex;
+        width: 100%;
+        margin-top: 30px;
+    }
+    
+    .method pre {
+        display: flex;
+    } */
+}

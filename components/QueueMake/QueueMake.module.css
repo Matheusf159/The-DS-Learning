@@ -2,5 +2,11 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-direction: row;
+    /* flex-direction: row; */
+}
+
+@media screen and (max-width: 600px) {
+    .container {
+        overflow: auto;
+    }
 }

@@ -141,7 +141,7 @@ export default function SelectionSortInterative() {
                             <option value={300}>Lento</option>
                             <option value={100}>Médio</option>
                             <option value={50}>Rápido</option>
-                            <option value={30}>Muito rápido</option>
+                            <option value={10}>Muito rápido</option>
                         </select>
                         
                         <button 
@@ -155,10 +155,7 @@ export default function SelectionSortInterative() {
                         <button className={styles.btnInterative} onClick={restart}>
                             REINICIAR
                         </button>
-
                     </Row>
-
-                    
                 </Row>
 
                 <Row className={styles.barSorts}>

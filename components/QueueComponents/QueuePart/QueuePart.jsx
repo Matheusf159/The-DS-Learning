@@ -18,10 +18,10 @@ export default function QueuePart(props) {
                 </div>
             </div> 
                 
-                { props.startEnd != " " ?
-                    <p>{props.startEnd}</p>
-                    : <p style={{color: 'white'}}>.</p>
-                }
+            { props.startEnd != " " ?
+                <p>{props.startEnd}</p>
+                : <p style={{color: 'white'}}>.</p>
+            }
                 
         </div>
     )
