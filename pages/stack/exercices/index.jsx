@@ -30,7 +30,6 @@ QuestionsStack.getLayout = function getLayout(page) {
                 <NavStructMenu
                     structName="PILHA"
                     iconName={faLayerGroup}
-                    linkStruct="stack"
                     linkVisualization="stack/visualization"
                     linkExercicio="stack/exercices"
                     methods={methods}

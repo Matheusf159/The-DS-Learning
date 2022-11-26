@@ -316,15 +316,9 @@ export default function QueueInterative() {
                             <option value="7">7</option>
                         </select>
 
+                    
                     </div>
                     
-                    <button 
-                        className={styles.buttonInterative1}
-                        style={{ display: showBtnCreateQueue ? " " : "none", opacity: valueStruct >=1 ? '1' : '0.5' }}
-                        onClick={btnCreateQueue} 
-                    >
-                            CRIAR FILA
-                    </button>
 
                     <div className={styles.infos} style={{ display: showChooseLength ? "none": " "}}>
                         <h3 style={{ display: showNextStep ? " " : "none"}}>Selecione a próxima operação</h3>
@@ -449,6 +443,16 @@ export default function QueueInterative() {
                     
                     <Row>
                     <div className={styles.buttonsUser}>
+                            <div className={styles.line}>
+                                <button 
+                                    className={styles.buttonInterative}
+                                    style={{ display: showBtnCreateQueue ? " " : "none", opacity: valueStruct >=1 ? '1' : '0.5' }}
+                                    onClick={btnCreateQueue} 
+                                >
+                                        CRIAR FILA
+                                </button>   
+                            </div>
+
                             <div className={styles.line1}>
                                 <button 
                                     className={styles.buttonInterative}

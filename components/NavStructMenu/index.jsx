@@ -38,7 +38,7 @@ export default function NavStructMenu({
   return (
     <Row className={styles.header}>
       <Col lg={6} className={styles.headerTitle}>
-        <Link href={`/${linkStructLocal}`}>
+        <Link href={`/`}>
           <a className={styles.alink}>
             <FontAwesomeIcon icon={iconName} className={styles.icon} />
             {structName}

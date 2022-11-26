@@ -31,9 +31,9 @@ export default function LinkedListMake(props) {
 
         if(i != 1 && i != props.end) {
             if(props.flag == true && props.searchElement == listValueEnqueue[i-1])
-                listLinkedListPart.push(<LinkedListPart valueEnqueue={listValueEnqueue[i-1]} arrowDisplay="true" check="true" />)
+                listLinkedListPart.push(<LinkedListPart valueEnqueue={listValueEnqueue[i-1]} startEnd=" " arrowDisplay="true" check="true" />)
             else
-                listLinkedListPart.push(<LinkedListPart valueEnqueue={listValueEnqueue[i-1]} arrowDisplay="true" />)
+                listLinkedListPart.push(<LinkedListPart valueEnqueue={listValueEnqueue[i-1]} startEnd=" " arrowDisplay="true" />)
         }
                
     }

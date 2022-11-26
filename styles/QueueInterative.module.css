@@ -114,6 +114,12 @@
     margin-top: 20px;
 }
 
+.line {
+    display: flex;
+    margin-top: 20px;
+    align-items: center;
+}
+
 .line1{
     margin-top: 10px;
 }
