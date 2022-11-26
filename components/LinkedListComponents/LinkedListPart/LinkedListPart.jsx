@@ -3,6 +3,7 @@ import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import styles from './LinkedListPart.module.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
+
 export default function LinkedListPart(props) {
     return (
         <div className={styles.container}>
@@ -27,7 +28,8 @@ export default function LinkedListPart(props) {
                     className={styles.arrow}
                     style={{ display: props.valueEnqueue != undefined ? "" : "none"  , color: 'black' }}
                 >
-                    <FontAwesomeIcon icon={faArrowRight} />
+                    <FontAwesomeIcon icon={faArrowRight} size="1px" /> 
+                        
                 </div>
             </div>
         </div> 

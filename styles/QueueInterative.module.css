@@ -91,12 +91,6 @@
     width: 50px;
     height: 30px;
     margin-top: 4px;
-    /* margin-left: 10px; */
-}
-
-.buttonsUser{
-    /* height: 50%;
-    width: 100%; */
 }
 
 .buttonInterative {
@@ -117,6 +111,7 @@
     border-radius: 6px;
     color: white;
     font-weight: bold;
+    margin-top: 20px;
 }
 
 .line1{
@@ -140,6 +135,7 @@
 @media screen and (max-width: 600px) {
     .buttonInterative1 {
         margin-top: 20px;
+        margin-left: -38px;
     }
     
     .buttonInterative {

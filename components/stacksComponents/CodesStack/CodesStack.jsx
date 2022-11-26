@@ -9,7 +9,7 @@ export function CreateStackCode(props) {
 1.  Pilha* criarPilha(){
 2.      Pilha* p = (Pilha*);
 3.      malloc(sizeof(Pilha));
-4.      p -> topo = 0;
+4.      p -> topo = -1;
 5.      return p;
 6.  }`
 
@@ -32,7 +32,8 @@ export function CreateStackCode(props) {
                         Linha 2 e 3 aloca dinaminacmente a estrutura na memória;
                     </p>
                     <p className={styles.pAnimation2}>
-                        Linha 4 inicializa o topo do vetor da pilha;
+                        Linha 4 inicializa o topo do vetor da pilha como -1, pois em um vetor
+                        0 siginifca o primeiro elemento da lista;
                     </p>
                     <p className={styles.pAnimation3}>
                         Linha 5 retorna o ponteira da estrutura criada.

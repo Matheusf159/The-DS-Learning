@@ -29,9 +29,9 @@ QuestionsSelectionSort.getLayout = function getLayout(page) {
                 <NavStructMenu
                     structName="SELECTIONSORT"
                     iconName={faSignal}
-                    linkStruct="/selectionSort"
-                    linkVisualization="/selectionSort/visualization"
-                    linkExercicio="/selectionSort/exercices"
+                    linkStruct="selectionSort"
+                    linkVisualization="selectionSort/visualization"
+                    linkExercicio="selectionSort/exercices"
                 />
                 {page}
             </section>

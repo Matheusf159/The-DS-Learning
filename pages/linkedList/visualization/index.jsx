@@ -267,12 +267,14 @@ export default function LinkedListInterative() {
     }
 
     function confirmInsertEnd() {
+        setShowStepsInsertEnd(true)
         if(valueListInsert.length < valueStruct && valueInsert != ''){
             setValueListInsert([...valueListInsert, valueInsert])
         }
         
         if(valueListInsert.length == valueStruct - 1) {
             setShowConfirmInsertEnd(false)
+            setShowConfirmInsertStart(false)
         }
 
         if(valueListInsert.length == valueStruct - 1) {
@@ -281,6 +283,7 @@ export default function LinkedListInterative() {
     }
 
     function confirmInsertStart() {
+        setShowStepsInsertBegin(true)
         if(valueListInsert.length < valueStruct && valueInsert != ''){
             let x = valueListInsert.splice(0, 0, valueInsert)
             
@@ -291,9 +294,7 @@ export default function LinkedListInterative() {
 
         if(valueListInsert.length == valueStruct - 1) {
             setShowConfirmInsertStart(false)
-        }
-
-        if(valueListInsert.length == valueStruct - 1) {
+            setShowConfirmInsertEnd(false)
             setShowCodeInsertStart(false)
         }
     }
@@ -526,8 +527,8 @@ export default function LinkedListInterative() {
 
                 <CreateLinkedListCode show={showCodeCreateLinkedList} />
 
-                <InsertBeginCode show={showCodeInsertStart} showSteps={showStepsInsertBegin} />
-                <InsertEndCode show={showCodeInsertEnd} showSteps={showStepsInsertEnd} />
+                <InsertBeginCode show={showCodeInsertStart} inputValue={valueInsert} showSteps={showStepsInsertBegin} />
+                <InsertEndCode show={showCodeInsertEnd} inputValue={valueInsert} showSteps={showStepsInsertEnd} />
 
                 <RemoveBeginCode show={showCodeRemoveStart} showSteps={showStepsRemoveBegin} />
                 <RemoveEndCode show={showCodeRemoveEnd} showSteps={showStepsRemoveEnd} />
@@ -535,7 +536,7 @@ export default function LinkedListInterative() {
                 <IsEmptyCode show={showCodeIsEmptyList} showSteps={showStepsIsEmpty} />
                 <ListPrintCode show={showCodePrintList} /> 
 
-                <SearchNodeCode show={showCodeSeacrh} />
+                <SearchNodeCode inputSearch={valueSearch} show={showCodeSeacrh} />
                 <FreeLinkedListCode show={showCodeFreeLinkedList} />
             </Row>
 
@@ -563,9 +564,9 @@ LinkedListInterative.getLayout = function getLayout(page) {
                 <NavStructMenu 
                     structName="LISTA ENCADEADA"
                     iconName={faEllipsis}
-                    linkStruct="/linkedList"
-                    linkVisualization="/linkedList/visualization"
-                    linkExercicio="/linkedList/exercices"
+                    linkStruct="linkedList"
+                    linkVisualization="linkedList/visualization"
+                    linkExercicio="linkedList/exercices"
                     methods={structures}
                 />
                 {page}

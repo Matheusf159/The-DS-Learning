@@ -49,8 +49,6 @@ export default function SelectionSortInterative() {
             setShowCodeSelectionSort(true)
 
             let [animations, valuesBubble] = selectionSortMain(array, animations)
-            console.log("animationB", animations)
-            console.log("valuesBubble", valuesBubble)
 
             let bar1 
             let bar2
@@ -58,17 +56,13 @@ export default function SelectionSortInterative() {
             for(let i = 0; i < animations.length; i++) {
                 const isColorChange = (i % 4 === 0) || (i % 4 === 1)
                 const arrayBars = document.getElementsByClassName(styles.arrayBar)
+                const elementsValues = document.getElementsByClassName(styles.elementsValue)
 
                 if(isColorChange === true) {
                     const color = (i % 4 === 0) ? 'blue' : 'rgb(72, 72, 72)'
                     const [barOneIndex, barTwoIndex] = animations[i]
                     const barOneStyle = arrayBars[barOneIndex].style
                     const barTwoStyle = arrayBars[barTwoIndex].style
-                    // bar1 = barOneIndex
-                    // bar2 = barTwoIndex
-
-                    // array[bar1] = parseInt(parseFloat(arrayBars[bar2].style.height))
-                    // array[bar2] = parseInt(parseFloat(arrayBars[bar1].style.height))
 
                     setTimeout(() => {
                         barOneStyle.backgroundColor = color
@@ -82,16 +76,11 @@ export default function SelectionSortInterative() {
                     }
 
                     const barStyle = arrayBars[barIndex].style
+                    const valueElement = elementsValues[barIndex].innerHTML
                     
                     setTimeout(() => {
-                        // array.forEach((element, index) => {
-                        //     array[index] = newHeight+50
-                        // });
-                        // array[bar1] = parseInt(parseFloat(arrayBars[bar2].style.height))
-                        // array[bar2] = parseInt(parseFloat(arrayBars[bar1].style.height))
-                        // console.log([...array])
-                        // setArray((array) => [...array]);
                         barStyle.height = `${newHeight+50}px`
+                        const valueElement = elementsValues[barIndex].innerHTML = `${newHeight+50}`
                     }, i * valueSpeed);
                 }   
         }
@@ -104,7 +93,6 @@ export default function SelectionSortInterative() {
         setLengthElements(true)
     }
 
-    console.log("speed", valueSpeed)
 
     return (
         <Container>
@@ -167,7 +155,7 @@ export default function SelectionSortInterative() {
                                             
                                     </div>
 
-                                    <div style={{ fontWeight: 'bold' }}>{value+50}</div>
+                                    <div className={styles.elementsValue}>{value+50}</div>
                                 </div>
                             ))
                         }
@@ -190,9 +178,9 @@ SelectionSortInterative.getLayout = function getLayout(page) {
                <NavStructMenu 
                    structName="SELECTIONSORT"
                    iconName={faSignal}
-                   linkStruct="/selectionsort"
-                   linkVisualization="/selectionsort/visualization"
-                   linkExercicio="/selectionsort/exercices"
+                   linkStruct="selectionsort"
+                   linkVisualization="selectionsort/visualization"
+                   linkExercicio="selectionsort/exercices"
                    methods={structures}
                />
                {page}

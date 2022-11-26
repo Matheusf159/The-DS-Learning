@@ -1,5 +1,6 @@
 .barSorts {
     margin-top: 20px;
+    height: 300px;
 }
 
 .content {
@@ -11,6 +12,11 @@
     height: 30px;
     margin-top: 4px;
     margin-left: 10px;
+}
+
+
+.elementsValue {
+    font-weight: bold;
 }
 
 
@@ -61,6 +67,7 @@
 .btnInterative {
     margin-left: 10px;
     margin-right: 10px;
+    margin-top: 10px;
     height: 50px;
     width: 170px;
     background-color: rgb(72, 72, 72);

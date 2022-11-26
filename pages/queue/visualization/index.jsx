@@ -527,12 +527,12 @@ export default function QueueInterative() {
                 </Row>
             </Row>
             
-            <Row style={{background: 'red'}} className={styles.queueInterative}>
+            <Row className={styles.queueInterative}>
                 <QueueMake 
                     valueStruct={valueStruct} 
                     listTest={valueListEnqueue}
                     end={valueListEnqueue.length}
-                />
+                    />
             </Row>
         </Container>
     )
@@ -548,9 +548,9 @@ QueueInterative.getLayout = function getLayout(page) {
                 <NavStructMenu 
                     structName="FILA"
                     iconName={faLinesLeaning}
-                    linkStruct="/queue"
-                    linkVisualization="/queue/visualization"
-                    linkExercicio="/queue/exercices"
+                    linkStruct="queue"
+                    linkVisualization="queue/visualization"
+                    linkExercicio="queue/exercices"
                     methods={structures}
                 />
                 {page}

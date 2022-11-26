@@ -30,9 +30,9 @@ QuestionsQueue.getLayout = function getLayout(page) {
                 <NavStructMenu
                     structName="PILHA"
                     iconName={faLayerGroup}
-                    linkStruct="/queue"
-                    linkVisualization="/queue/visualization"
-                    linkExercicio="/queue/exercices"
+                    linkStruct="queue"
+                    linkVisualization="queue/visualization"
+                    linkExercicio="queue/exercices"
                     methods={methods}
                 />
                 {page}

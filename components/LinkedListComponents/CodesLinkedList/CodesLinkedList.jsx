@@ -41,8 +41,9 @@ export function ListLinkedListCode(props) {
 `
 1. typedef struct list {
 2.      Node *head;
-3.      int len;
-4. } List;`
+3.      Node *last;
+4.      int len;
+5. } List;`
 
     return (
         <Container
@@ -61,6 +62,7 @@ export function ListLinkedListCode(props) {
                 <Col className={styles.description}>
                     <p className={styles.pAnimation1}>
                         <i>*head:</i> ponteiro responsável por para elemento inicial da lista; <br />
+                        <i>*least:</i> ponteiro responsável por para elemento final da lista; <br />
                         <i>len:</i> responsável por indicar o tamanho da lista.
                     </p>
                 </Col>
@@ -74,7 +76,7 @@ export function CreateLinkedListCode(props) {
 `
 1. List* create_list() {
 2.      List *list = (List*)malloc(sizeof(List));
-3.      list->head = NULL;
+3.      list->head = list->last = NULL;
 4.      list->len = 0;
 5.      return list;
 6.}`
@@ -98,7 +100,7 @@ export function CreateLinkedListCode(props) {
                         linha 2 responsável por alocar a lista to tipo List na memória;
                     </p>
                     <p className={styles.pAnimation1}>
-                        linha 3 irá iniciar apontando início da lista para NULL;
+                        linha 3 irá iniciar apontando início e o fim da lista para NULL;
                     </p>
                     <p className={styles.pAnimation1}>
                         linha 4 irá iniciar o tamanho da lista como 0.
@@ -114,69 +116,14 @@ export function InsertBeginCode(props) {
 `
 1. void insert_begin(List *L, int v) {
 2.      Node *new = (Nodo*) malloc(sizeof(Node));
-3.      L->len++;
-4.      new->info = v;
-5.      new->next = L->head;
-6.      L->head = new;
-7.}`
-
-    return (
-        <Container
-            className={styles.method}
-            style={{ display: props.show ? "" : "none" }}
-        >
-            <Row>
-                <Col>
-                    <pre>
-                        <code className={styles.codes}>
-                            {code}
-                        </code>
-                    </pre>
-                </Col>
-
-                <Col 
-                    style={{display: props.showSteps ? "" : "none"}}
-                    className={styles.description}
-                >
-                    <p className={styles.pAnimation1}>
-                        linha 2 responsável por alocar um novo elemento da lista na memória;
-                    </p>
-                    <p className={styles.pAnimation2}> 
-                        linha 3 responsável por incrementar o tamanho da lista;
-                    </p>
-                    <p className={styles.pAnimation3}>
-                        linha 4 a informação do novo elemento irá receber o valor passado;
-                    </p>
-                    <p className={styles.pAnimation4}>
-                        linha 5  ponteiro próximo do novo elemento irá apontar para o início da lista;
-                    </p>
-                    <p className={styles.pAnimation5}>
-                        linha 6 por fim o início da lista irá apontar para o novo elemento.
-                    </p>
-                </Col>
-            </Row>
-        </Container>
-    )
-}
-
-export function InsertEndCode(props) {
-    const code = 
-`
-1. void insert_end(List *L, int v) {
-2.      Node *new = (Node*)malloc(sizeof(Node));
-3.      new->info = v;
-4.      L->len++;
-5.      new->next = NULL;
-6.      if(is_empty(L)) {
-7.          L->head = new;
-8       } else {
-9.          Node *aux;
-10.         for(Node *p=L>head; p!=NULL; p=p->next) {
-11.             aux = p;
-12.         }
-13.         aux->next = new;
-14.     }
-15. }`
+3.      new->info = ${props.inputValue};
+4.      if(is_empty(L)) {
+5.          L->last = new;    
+6.      }
+7.      new->next = L->head;
+8.      L->head = new;
+9.      L->len++;
+10.}`
 
     return (
         <Container
@@ -198,32 +145,80 @@ export function InsertEndCode(props) {
                 >
                     <p className={styles.pAnimation1}>
                         linha 2 responsável por alocar um novo elemento da lista na memória; <br />
-                        linha 3 a informação do novo elemento irá receber o valor passado;
+                        linha 3 a informação do novo nodo irá receber o valor passado;
                     </p>
-                    <p className={styles.pAnimation2}>
-                        linha 4 responsável por incrementar o tamanho da lista; <br />
-                        linha 5  ponteiro próximo do novo elemento irá apontar para NULL pois o novo
-                        elemento será o último;
+                    <p className={styles.pAnimation2}> 
+                        linha 4 irá verificar se a lista esta vazia, caso esteja, na linha seguinte o ponteiro 
+                        que aponta para o fim da lista irá apontar para o novo elemento;
                     </p>
                     <p className={styles.pAnimation3}>
-                        linha 6 irá acontecer uma verificação se a lista está vazia; <br />
-                        lista 7 se a lista estiver vazia o inicio da lista será o novo
-                        elemento;
+                        linha 6 o ponteiro next do novo elemento irá receber o início da lista;
                     </p>
                     <p className={styles.pAnimation4}>
-                        caso a lista não estiver vazia, irá ser necessário percorrer a lista até
-                        o seu final; <br />
-                        linha 9 um elemeno do tipo Node para fazer a inserção do novo elemento;
+                        linha 8 o início da lista irá receber o nome elemento;
                     </p>
                     <p className={styles.pAnimation5}>
-                        linha 10 um laço irá ser necessário para percorrer a lista até o seu final; <br />
-                        para interação do laço um elemento p do tipo Node será criado recebendo o início da
-                        lista;
+                        linha 9 o tamanho da lista será incrementado.
+                    </p>
+                </Col>
+            </Row>
+        </Container>
+    )
+}
+
+export function InsertEndCode(props) {
+    const code = 
+`
+1. void insert_end(List *L, int v) {
+2.      if(is_empty(L)) {
+3.          return insert_begin(L, v);
+4.      }
+5.      Nodo *new = (Nodo*) malloc(sizeof(Nodo));    
+6.      new->info = ${props.inputValue};
+7.      L->last->next = new;
+8.      L->last = new;
+9.      L->last->next = NULL;
+10.     L->len++;
+11.}`
+
+    return (
+        <Container
+            className={styles.method}
+            style={{ display: props.show ? "" : "none" }}
+        >
+            <Row>
+                <Col>
+                    <pre>
+                        <code className={styles.codes}>
+                            {code}
+                        </code>
+                    </pre>
+                </Col>
+
+                <Col 
+                    style={{display: props.showSteps ? "" : "none"}}
+                    className={styles.description}
+                >
+                    <p className={styles.pAnimation1}>
+                        linha 2 verifica se a lista esta vazia, caso esteja, a linha seguinte
+                        retornará a chamada da função insert_begin para adicionar o novo elemento. 
+                    </p>
+                    <p className={styles.pAnimation2}>
+                        linha 5 responsável por alocar um novo elemento da lista na memória; 
+                    </p>
+                    <p className={styles.pAnimation3}>
+                        linha 6 a informação do novo elemento irá receber o valor passado;
+                    </p>
+                    <p className={styles.pAnimation4}>
+                        linha 7 o ponteiro próximo do elemento final da lista irá receber o 
+                        novo elemento;
+                    </p>
+                    <p className={styles.pAnimation5}>
+                        linha 8 o final da lista ira receber o novo elemento;
                     </p>
                     <p className={styles.pAnimation6}>
-                        linha 11 o elemento aux irá receber o p que agora é o último elemento da lista; <br />
-                        linha 13 aux agora sendo o último elemento, irá apontar para o novo elemento que será 
-                        inserido.
+                        linha 9 o ponteiro próximo do novo elemento final da lista irá receber NULL <br />
+                        linha 10 o tamanho da lista irá ser incrementado.
                     </p>
                 </Col>
             </Row>
@@ -417,7 +412,7 @@ export function SearchNodeCode(props) {
 `
 1. Node *search_node(List *L, int v) {
 2.      for(Node *p=L->head; p!=NULL; p=p->next)
-3.          if(p->info==v)
+3.          if(p->info==${props.inputSearch})
 4.              return p;
 5.      return NULL;
 6.}`

@@ -16,8 +16,8 @@ export default function QueuePart(props) {
                 <div className={styles.part}>
                     {props.valueEnqueue}
                 </div>
-            </div> 
                 
+            </div> 
             { props.startEnd != " " ?
                 <p>{props.startEnd}</p>
                 : <p style={{color: 'white'}}>.</p>

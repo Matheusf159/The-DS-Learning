@@ -16,7 +16,6 @@
     justify-content: center;
     width: 70px;
     height: 70px;
-    /* border: 1px dashed black; */
     background-color: white;
     color: white;
     user-select: none;
@@ -31,3 +30,11 @@
     height: 70px;
 }
 
+@media screen and (max-width: 600px) {
+    .partLL {
+        height: 40px;
+        width: 40px;
+    }
+
+    
+}

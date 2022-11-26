@@ -29,9 +29,9 @@ QuestionsLinkedList.getLayout = function getLayout(page) {
                 <NavStructMenu
                     structName="LISTA ENCADEADA"
                     iconName={faEllipsis}
-                    linkStruct="/linkedList"
-                    linkVisualization="/linkedList/visualization"
-                    linkExercicio="/linkedList/exercices"
+                    linkStruct="linkedList"
+                    linkVisualization="linkedList/visualization"
+                    linkExercicio="linkedList/exercices"
                 />
                 {page}
             </section>
