@@ -1,6 +1,7 @@
 import React from 'react'
 import styles from './QueueMake.module.css'
 import QueuePart from '../QueueComponents/QueuePart/QueuePart'
+import { Container, Row, Col } from "reactstrap";
 
 export default function QueueMake(props) {
     const listQueuePart = []
@@ -29,9 +30,9 @@ export default function QueueMake(props) {
     console.log("listStackPart.map((s) => s)", listQueuePart.map((q) => q.props.valueEnqueue))
 
     return (
-        <div className={styles.container}>
+        <Col className={styles.container}>
             {listQueuePart.map((q) => q)}
-        </div>
+        </Col>
     )
 
 }
