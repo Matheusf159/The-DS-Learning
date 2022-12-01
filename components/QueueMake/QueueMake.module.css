@@ -3,11 +3,10 @@
     align-items: center;
     justify-content: center;
     flex-direction: row;
-    /* margin-left: 20px; */
 }
 
 @media screen and (max-width: 600px) {
     .container {
-        margin: 0 auto;
+        margin-left: 190px;
     }
 }

@@ -531,13 +531,13 @@ export default function QueueInterative() {
                 </Row>
             </Row>
             
-            <Row className={styles.queueInterative}>
+            <div className={styles.queueInterative}>
                 <QueueMake 
                     valueStruct={valueStruct} 
                     listTest={valueListEnqueue}
                     end={valueListEnqueue.length}
                     />
-            </Row>
+            </div>
         </Container>
     )
 }

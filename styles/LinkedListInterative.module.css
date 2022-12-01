@@ -135,8 +135,10 @@
 }
 
 @media screen and (max-width: 600px) {
-    .queueInterative {
+    .linkedListInterative {
       overflow: auto;
+      margin-top: 50px;
+      margin-bottom: 400px;
     }
     .codes {
         overflow: auto;

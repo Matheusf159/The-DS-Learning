@@ -4,3 +4,10 @@
     justify-content: center;
     flex-direction: row;
 }
+
+@media screen and (max-width: 600px) {
+    .container {
+        margin-left: 210px;
+        margin-bottom: 100px;
+    }
+}

@@ -540,7 +540,7 @@ export default function LinkedListInterative() {
                 <FreeLinkedListCode show={showCodeFreeLinkedList} />
             </Row>
 
-            <Row className={styles.queueInterative}>
+            <Row className={styles.linkedListInterative}>
                 <LinkedListMake 
                     valueStruct={valueStruct} 
                     listTest={valueListInsert}
