@@ -5,6 +5,7 @@ import { exercices } from '../../../components/SelectionSortComponents/Selection
 import { Container } from "reactstrap";
 import { faSignal } from "@fortawesome/free-solid-svg-icons";
 import styles from '../../../styles/Exercices.module.css'
+import { methods } from "../../../components/LinkedListComponents/methods";
 
 export default function QuestionsSelectionSort() {
     return (
@@ -30,8 +31,9 @@ QuestionsSelectionSort.getLayout = function getLayout(page) {
                     structName="SELECTIONSORT"
                     iconName={faSignal}
                     linkStruct="selectionSort"
-                    linkVisualization="selectionSort/visualization"
+                    linkVisualization="selectionsort/visualization"
                     linkExercicio="selectionSort/exercices"
+                    methods={methods}
                 />
                 {page}
             </section>

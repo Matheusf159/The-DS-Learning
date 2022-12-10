@@ -5,6 +5,7 @@ import { exercices } from '../../../components/LinkedListComponents/LinkedListEx
 import { Container } from "reactstrap";
 import { faEllipsis } from "@fortawesome/free-solid-svg-icons";
 import styles from '../../../styles/Exercices.module.css'
+import { methods } from "../../../components/LinkedListComponents/methods";
 
 export default function QuestionsLinkedList() {
     return (
@@ -32,6 +33,7 @@ QuestionsLinkedList.getLayout = function getLayout(page) {
                     linkStruct="linkedList"
                     linkVisualization="linkedList/visualization"
                     linkExercicio="linkedList/exercices"
+                    methods={methods}
                 />
                 {page}
             </section>

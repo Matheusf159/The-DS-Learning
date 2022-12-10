@@ -4,7 +4,7 @@ import NavStructMenu from "../../../components/NavStructMenu";
 import { exercices } from '../../../components/QueueComponents/QueueExercicies'
 import { Container, Row, Col } from "reactstrap";
 import { faLayerGroup } from "@fortawesome/free-solid-svg-icons";
-import { methods } from "../../../components/stacksComponents/methods";
+import { methods } from "../../../components/QueueComponents/methods";
 import styles from '../../../styles/Exercices.module.css'
 
 export default function QuestionsQueue() {
